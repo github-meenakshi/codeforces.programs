@@ -1,0 +1,36 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <unordered_map>
+#include <math.h>
+#include <iomanip>
+#include <map>
+#include <set>
+using namespace std;
+int main(){
+int t;
+cin>>t;
+while(t--){
+int x,y;
+cin>>x>>y;
+string s;
+cin>>s;
+char a,b;
+if(x<0){
+a = 'L';
+}
+else a = 'R';
+if(y<0) b = 'D';
+else b = 'U';
+int req_x = abs(0-x);
+int req_y = abs(0-y);
+int curr_x = 0,curr_y = 0;
+for(int i = 0;i<s.length();i++){
+if(s[i] == a) curr_x++;
+if(s[i] == b) curr_y++;
+}
+if(curr_x>=req_x && curr_y>=req_y) cout<<"YES"<<endl;
+else cout<<"NO"<<endl;
+}
+return 0;
+}
