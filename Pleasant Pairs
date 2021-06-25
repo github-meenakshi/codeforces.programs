@@ -1,0 +1,38 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <unordered_map>
+#include <math.h>
+#include <iomanip>
+#include <map>
+#include <set>
+using namespace std;
+//Pleasant Pairs
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,count = 0;
+        cin>>n;
+        long long int arr[n+1];
+        for(int i = 1;i<=n;i++) cin>>arr[i];
+        for(int i = 1;i<n;i++){
+            int start = 1,req;
+            long long int pro = arr[i]*start;
+            long long int ele = pro-i;
+            while(ele<=n){
+                if(ele>i){
+                    if((arr[ele]*arr[i]) == (i+ele)){
+                        count++;
+                        }
+                    }
+                    //cout<<count<<endl;
+                start++;
+                pro = (arr[i]*start);
+                ele = pro-i;
+                }
+            }
+            cout<<count<<endl;
+        }
+        return 0;
+    }
