@@ -1,0 +1,58 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <unordered_map>
+#include <math.h>
+#include <iomanip>
+#include <map>
+#include <set>
+using namespace std;
+bool check(vector<int> vec,int sum,int n){
+    bool dp[n+1][sum+1];
+    for(int i = 0;i<=n;i++){
+        dp[i][0] = true;
+        }
+        for(int i = 0;i<=sum;i++){
+            dp[0][i] = false;
+            }
+            for(int i = 1;i<=n;i++){
+                for(int j = 1;j<=sum;j++){
+                    if(vec[i-1]<=j){
+                        dp[i][j] = (dp[i-1][j] || dp[i][j-vec[i-1]]);
+                        }
+                        else dp[i][j] = dp[i-1][j];
+                    }
+                }
+                return dp[n][sum];
+    }
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int q,d;
+        cin>>q>>d;
+        while(q--){
+            int x;
+            cin>>x;
+            if(x>100) cout<<"YES"<<endl;
+            else{
+                int ele = (d*10+d);
+                if(x>=ele) cout<<"YES"<<endl;
+                else{
+                    vector<int> vec;
+                    int start = d;
+                    while(start<ele){
+                        vec.push_back(start);
+                        start = start+10;
+                        }
+                        for(int i = d*10;i<((d*10)+d);i++) vec.push_back(i);
+                        int n = vec.size();
+                        int ans = check(vec,x,n);
+                        if(ans == true) cout<<"YES"<<endl;
+                        else cout<<"NO"<<endl;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
