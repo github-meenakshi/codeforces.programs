@@ -1,0 +1,53 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,alice = 0,bob = 0;
+        cin>>n;
+        multiset<int,greater<int> > odd;
+        multiset<int,greater<int> > even;
+        while(n--){
+            int x;
+            cin>>x;
+            if(x%2 == 0) even.insert(x);
+            else odd.insert(x);
+            }
+            bool flag = true;
+            while(odd.size()!=0 || even.size()!=0){
+                if(flag == true){
+                    flag = false;
+                    auto it1 = even.begin();
+                    auto it2 = odd.begin();
+                    int even_g = *it1;
+                    int odd_g = *it2;
+                    if(even_g>=odd_g){
+                        alice+=even_g;
+                        even.erase(it1);
+                        }
+                        else odd.erase(it2);
+                    }
+                    else{
+                        flag = true;
+                        auto it1 = odd.begin();
+                        auto it2 = even.begin();
+                        int odd_g = *it1;
+                        int even_g = *it2;
+                        if(odd_g>=even_g){
+                            bob+=odd_g;
+                            odd.erase(it1);
+                            }
+                            else even.erase(it2);
+                        }
+                }
+                if(bob == alice) cout<<"Tie"<<endl;
+                else if(bob>alice) cout<<"Bob"<<endl;
+                else cout<<"Alice"<<endl;
+        }
+        return 0;
+    }
