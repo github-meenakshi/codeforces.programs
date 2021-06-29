@@ -1,0 +1,41 @@
+
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,maxi = -1;
+        cin>>n;
+        long long int arr[n];
+        for(int i = 0;i<n;i++){
+            cin>>arr[i];
+            }
+            for(int i = 0;i<n;i++){
+                if(arr[i] == -1) continue;
+                long long int j,sum = 0;
+                j = i;
+                while(j<n){
+                     if(j<n){
+                    if(arr[j] == -1){
+                        break;
+                        } 
+                        sum+=arr[j];
+                        if(arr[j]>0){
+                            long long int ele = arr[j];
+                            j = j+arr[j];
+                            arr[j-ele] = -1;
+                            }
+                        }
+                    }
+                    maxi = max(sum,maxi);
+                }
+                cout<<maxi<<endl;
+        }
+        return 0;
+    }
