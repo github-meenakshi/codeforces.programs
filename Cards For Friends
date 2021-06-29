@@ -1,0 +1,26 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int w,h,n,pieces1 = 1,pieces2 = 1;
+        cin>>w>>h>>n;
+        while(w%2 == 0 && w!=1){
+            pieces1 = pieces1+pieces1;
+            w = w/2;
+            }
+            while(h%2 == 0 && h!=1){
+            pieces2 = pieces2+pieces2;
+            h = h/2;
+            }
+            int ans = (pieces1*pieces2);
+            if(ans>=n) cout<<"YES"<<endl;
+            else cout<<"NO"<<endl;
+        }
+        return 0;
+    }
