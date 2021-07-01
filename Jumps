@@ -1,0 +1,28 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int x;
+        cin>>x;
+        int steps = 0,curr = 0,i = 1;
+        while(curr<x){
+            curr = curr+i;
+            i++;
+            steps++;
+            }
+            if(curr == x) cout<<steps<<endl;
+            else{
+                int diff = curr-x;
+                if(diff == 1) cout<<(steps+1)<<endl;
+                else cout<<steps<<endl;
+                }
+        }
+        return 0;
+    }
