@@ -1,0 +1,41 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n>>k;
+        int x[n];
+        int y[n];
+        for(int i = 0;i<n;i++){
+            cin>>x[i]>>y[i];
+            }
+            bool flag = false;
+            for(int i = 0;i<n;i++){
+                int first = x[i];
+                int second = y[i];
+                bool inner_flag = true;
+                for(int i = 0;i<n;i++){
+                    int diff = abs(first-x[i])+abs(second-y[i]);
+                    if(diff>k){
+                        inner_flag = false;
+                        break;
+                        }
+                    }
+                    if(inner_flag == true){
+                        flag = true;
+                        break;
+                        }
+                }
+                if(flag == true) cout<<1<<endl;
+                else cout<<-1<<endl;
+        }
+        return 0;
+    }
