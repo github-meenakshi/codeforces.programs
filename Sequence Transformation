@@ -1,0 +1,47 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,mini = 100010,prev = -1;
+        cin>>n;
+        map<int,int> mp;
+        for(int i = 1;i<=n;i++){
+            int x;
+            cin>>x;
+            if(prev == x){
+                if(i == n) mp[x]--;
+                }
+            else if(mp.find(x) == mp.end()){
+                if(i == 1) mp[x] = 1;
+                else if(i == n) mp[x] = 1;
+                else mp[x] = 2;
+                }
+                else{
+                    if(i == n){
+                        continue;
+                        }
+                        else{
+                            mp[x]++;
+                            }
+                        }
+                        prev = x;
+                    }
+            if(mp.size() == 1) mini = 0;
+            else{
+                for(auto it : mp){
+                int ele = it.second;
+                if(ele<mini) mini = ele;
+                }
+            }
+                cout<<mini<<endl;
+        }
+        return 0;
+    }
