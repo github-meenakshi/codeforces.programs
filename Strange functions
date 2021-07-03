@@ -1,0 +1,26 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
+ 
+long long t, n, ans, kpk; 
+ 
+int main(){
+	cin>>t;
+	for(int i=1; i<=t; i++){
+		cin>>n;
+		kpk=1;
+		ans=n;
+		for(long long j=1; j<=40; j++){
+			kpk=(j*kpk)/__gcd(j, kpk);
+			ans=ans+n/kpk;
+		}
+		cout<<ans%1000000007<<endl;
+	}
+}
