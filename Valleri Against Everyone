@@ -1,0 +1,31 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        set<int> st;
+        bool flag = false;
+        for(int i = 1;i<=n;i++){
+            int x;
+            cin>>x;
+            if(st.find(x) == st.end()) st.insert(x);
+            else{
+                flag = true;
+                break;
+                }
+            }
+            if(flag == true) cout<<"YES"<<endl;
+            else cout<<"NO"<<endl;
+        }
+        return 0;
+    }
