@@ -1,0 +1,30 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int x,ele = 0,times = 0,ans = 0,s = 1;
+        cin>>x;
+        while(x!=0){
+            ele=x%10;
+            x = x/10;
+            times++;
+            }
+            while(times!=0){
+                ans = ans+s;
+                s++;
+                times--;
+                }
+                int ans2 = (ele-1)*10;
+                cout<<(ans+ans2)<<endl;
+        }
+        return 0;
+    }
