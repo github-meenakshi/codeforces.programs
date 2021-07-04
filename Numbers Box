@@ -1,0 +1,40 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,m,mini = 110,negi = 0,sum = 0;
+        cin>>n>>m;
+        bool zero = false,neg = false;
+        for(int i = 1;i<=n;i++){
+            for(int j = 1;j<=m;j++){
+                int x;
+                cin>>x;
+                sum = sum+abs(x);
+                mini = min(mini,abs(x));
+                if(x<0){
+                    negi++;
+                    neg = true;
+                    }
+                    if(x == 0) zero = true;
+                }
+            }
+            //cout<<mini<<" "<<mini_sec<<endl;
+            if(zero == true || negi == 0) cout<<sum<<endl;
+            else{
+                if(negi%2 == 0) cout<<sum<<endl;
+                else{
+                    sum = sum-(2*mini);
+                    cout<<sum<<endl;
+                    }
+                }
+        }
+        return 0;
+    }
