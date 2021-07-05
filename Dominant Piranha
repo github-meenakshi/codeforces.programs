@@ -1,0 +1,37 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,maxi = -1,indii;
+        cin>>n;
+        long long int arr[n+1];
+        set<long long int> st;
+        for(int i=1;i<=n;i++){
+            cin>>arr[i];
+            st.insert(arr[i]);
+            if(arr[i]>=maxi){
+                indii = i;
+                maxi = arr[i];
+                }
+            }
+            if(st.size() == 1) cout<<-1<<endl;
+            else{
+                    if(indii == n){
+                        int i = n;
+                        while(arr[i] == arr[indii]) i--;
+                        indii = i+1;
+                        }
+                    cout<<indii<<endl;
+                }
+        }
+        return 0;
+    }
