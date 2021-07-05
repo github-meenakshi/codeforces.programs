@@ -1,0 +1,41 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int fake = n;
+        vector<int> vec1;
+        vector<int> vec2;
+        vec1.push_back(n-1);
+        vec2.push_back(n);
+        int sum = n+(n-1),result = 0;
+        if(sum%2 == 0) result = sum/2;
+        else result = (sum/2)+1;
+        //cout<<result<<endl;
+        n = n-2;
+        while(n!=0){
+            vec1.push_back(n);
+            vec2.push_back(result);
+            sum = n+result;
+            if(sum%2 == 0) result = sum/2;
+            else result = (sum/2)+1;
+            //result = ceil((n+result)/2);
+            n--;
+            }
+            cout<<2<<endl;
+                for(int i = 0;i<fake-1;i++){
+                cout<<vec1[i]<<" "<<vec2[i]<<endl;
+                }
+        }
+        return 0;
+    }
