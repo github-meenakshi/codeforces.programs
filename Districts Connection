@@ -1,0 +1,50 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,repeat = -1,second = -1;
+        cin>>n;
+        long long int arr[n+1];
+        vector<long long int> vec;
+        map<long long int,long long int> mp;
+        bool first = false;
+        for(int i = 1;i<=n;i++){
+            cin>>arr[i];
+            if(repeat == -1){
+                repeat = arr[i];
+                }
+                else if(arr[i] == repeat){
+                    vec.push_back(i);
+                    }
+                    else{
+                        if(second == -1){
+                            second = i;
+                            mp[i] = 1;
+                            }
+                            else{
+                                mp[i] = 1;
+                                }
+                        }
+            }
+            if(second == -1) cout<<"NO"<<endl;
+            else{
+                cout<<"YES"<<endl;
+                for(auto it : mp){
+                    cout<<it.first<<" "<<it.second<<endl;
+                    }
+                    for(int it1 : vec){
+                        cout<<second<<" "<<it1<<endl;
+                        }
+                }
+        }
+        return 0;
+    }
