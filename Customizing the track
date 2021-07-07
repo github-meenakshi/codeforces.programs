@@ -1,0 +1,33 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,sum = 0;
+        cin>>n;
+        long long int arr[n];
+        for(int i = 0;i<n;i++){
+            cin>>arr[i];
+            sum+=arr[i];
+            }
+            if(sum == 0) cout<<0<<endl;
+            else{
+            long long int divi = sum/n;
+            long long int rem = sum%n;
+            if(rem == 0) cout<<0<<endl;
+            else{
+                long long int ans = rem*(n-rem);
+                cout<<ans<<endl;
+            }
+            }
+        }
+        return 0;
+    }
