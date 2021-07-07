@@ -1,0 +1,32 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int a,b;
+        cin>>a>>b;
+        if(a == 0 || b == 0) cout<<__gcd(a,b)<<" "<<0<<endl;
+        else if(a == b) cout<<0<<" "<<0<<endl;
+        else{
+            long long int req=0,diff,maxi,rem;
+            diff = abs(a-b);
+            if(diff == 1) req = 0;
+            else{
+            maxi = max(a,b);
+            rem = maxi%diff;
+            if(rem!=0) req = diff-rem;
+            req = min(req,rem);
+            }
+            cout<<diff<<" "<<req<<endl;
+            }
+        }
+        return 0;
+    }
