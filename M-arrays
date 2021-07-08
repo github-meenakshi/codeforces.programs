@@ -1,0 +1,58 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+while(t--){
+    int n,m,count = 0;
+    cin>>n>>m;
+    map<int,int> mp;
+    for(int i = 0;i<n;i++){
+        int x;
+        cin>>x;
+        int rem = x%m;
+        if(mp.find(rem) == mp.end()) mp[rem] = 1;
+        else mp[rem]++;
+        }
+        if(mp.find(0)!=mp.end()){
+            count++;
+            mp.erase(0);
+            }
+            if(m%2 == 0){
+                int half = m/2;
+                if(mp.find(half)!=mp.end()){
+                    count++;
+                    mp.erase(half);
+                    }
+                }
+                //cout<<count<<endl;
+                for(auto it : mp){
+                    int doosra_wala = m-it.first;
+                    if(mp.find(doosra_wala)!=mp.end()){
+                    auto it1 = mp.find(doosra_wala);
+                    int firsts = it.second;
+                    int second = it1->second;
+                    mp.erase(doosra_wala);
+                    //mp.erase(it.first);
+                    if(abs(firsts-second)<=1) count++;
+                    else{
+                        count++;
+                        int diff = abs(firsts-second);
+                        diff--;
+                        count = count+diff;
+                        }
+                    }
+                    else count = count+it.second;
+                    //cout<<count<<endl;
+                    }
+                    cout<<count<<endl;
+    }
+    return 0;
+    }
