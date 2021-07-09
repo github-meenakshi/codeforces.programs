@@ -7,7 +7,8 @@
 #include <map>
 #include <vector>
 using namespace std;
-void solve() {
+void solve() 
+{
 	int n;
 	scanf("%d", &n);
  
