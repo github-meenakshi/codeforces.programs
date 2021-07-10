@@ -1,0 +1,38 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int x1,y1,x2,y2,x3,y3;
+        cin>>x1>>y1>>x2>>y2>>x3>>y3;
+        if(x1 == x2 && y1 == y2) cout<<0<<endl;
+        else{
+        int x = abs(x1-x2)+abs(x2-x3);
+        int y = abs(y1-y2)+abs(y2-y3);
+        int ans = abs(x2-x1)+abs(y2-y1);
+        if(x == 0){
+            int first = abs(y3-y1);
+            int second = abs(y3-y2);
+            int third = abs(y1-y2);
+            if(first+second == third) ans = ans+2;
+            
+            }
+            if(y == 0){
+                int first = abs(x3-x1);
+            int second = abs(x3-x2);
+            int third = abs(x1-x2);
+            if(first+second == third) ans = ans+2;
+                }
+        cout<<ans<<endl;
+        }
+    }
+        return 0;
+    }
