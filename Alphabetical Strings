@@ -1,0 +1,45 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        cin>>s;
+        set<int> st;
+        int len = s.length(),maxi = -1;
+        bool flag = true;
+        for(int i = 0;i<len;i++){
+            if(st.find(s[i]) == st.end()){
+                int ele = s[i];
+                maxi = max(maxi,ele);
+                st.insert(s[i]);
+                if(i!=0 && i!=(len-1)){
+                    int curr = s[i];
+                    int prev = s[i-1];
+                    int next = s[i+1];
+                    if(curr>prev && curr>next){
+                        flag = false;
+                        break;
+                        }
+                    }
+                }
+                else{
+                    flag = false;
+                    break;
+                    }
+            }
+            int check = maxi-'a'+1;
+            if(st.size()!=check) flag = false;
+            if(flag == false) cout<<"NO"<<endl;
+            else cout<<"YES"<<endl;
+        }
+        return 0;
+    }
