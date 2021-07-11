@@ -1,0 +1,84 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int k,n,m,maxi = -1,count = 0;
+        cin>>k>>n>>m;
+        int a[n];
+        int b[m];
+        for(int i = 0;i<n;i++) cin>>a[i];
+        for(int i = 0;i<m;i++) cin>>b[i];
+        int first = 0,second = 0;
+        vector<int> vec;
+        bool flag = true;
+        while(first<n || second<m){
+            if(first<n && a[first] == 0){
+                k++;
+                vec.push_back(a[first]);
+                first++;
+                }
+                else if(second<m && b[second] == 0){
+                    k++;
+                    vec.push_back(b[second]);
+                    second++;
+                    }
+                    else if(first<n && a[first]<=k){
+                        vec.push_back(a[first]);
+                        first++;
+                        }
+                        else if(second<m && b[second]<=k){
+                            vec.push_back(b[second]);
+                            second++;
+                            }
+                            else{
+                                flag = false;
+                                break;
+                                }
+            }
+//            while(first<n){
+//                if(a[first] == 0){
+//                    vec.push_back(a[first]);
+//                    k++;
+//                    first++;
+//                    }
+//                    else if(a[first]<=k){
+//                        vec.push_back(a[first]);
+//                        first++;
+//                        }
+//                        else{
+//                            flag = false;
+//                            break;
+//                            }
+//                }
+//                while(second<m){
+//                if(b[second] == 0){
+//                    vec.push_back(b[second]);
+//                    k++;
+//                    second++;
+//                    }
+//                    else if(b[second]<=k){
+//                        vec.push_back(b[second]);
+//                        second++;
+//                        }
+//                        else{
+//                            flag = false;
+//                            break;
+//                            }
+//                }
+            if(flag == false) cout<<"-1"<<endl;
+            else{
+                for(auto it : vec) cout<<it<<" ";
+                cout<<endl;
+                }
+        }
+        return 0;
+    }
