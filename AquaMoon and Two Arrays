@@ -1,0 +1,64 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,sum1 = 0,sum2 = 0,req = 0;
+        cin>>n;
+        int arr1[n+1];
+        int arr2[n+1];
+        map<int,int> great;
+        map<int,int> small;
+        for(int i = 1;i<=n;i++){
+            cin>>arr1[i];
+            sum1+=arr1[i];
+            }
+             for(int i = 1;i<=n;i++){
+            cin>>arr2[i];
+            sum2+=arr2[i];
+            if(arr2[i]<arr1[i]){
+                great[i] = arr1[i]-arr2[i];
+                req+=(arr1[i]-arr2[i]);
+                }
+                else if(arr2[i]>arr1[i]){
+                    small[i] = arr2[i]-arr1[i];
+                    req+=(arr2[i]-arr1[i]);
+                    }
+            }
+           if(sum1!=sum2) cout<<-1<<endl;
+           else{
+               cout<<(req/2)<<endl;
+               for(auto it : great){
+                   bool flag = true;
+                   while(flag == true){
+                       if(it.second == 0) flag = false;
+                       else{
+                           auto it1 = small.begin();
+                           int ele = it1->second;
+                           if(ele == 0){
+                               small.erase(it1);
+                               continue;
+                               }
+                               else{
+                                   cout<<it.first<<" "<<it1->first<<endl;
+                                   int val = it.second;
+                                   it.second = val-1;
+                                   int val1 = it1->second;
+                                   it1->second = val1-1;
+                                   }
+                           }
+                       }
+                   
+                   }
+               } 
+        }
+        return 0;
+    }
