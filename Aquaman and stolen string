@@ -1,0 +1,42 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,m,fake;
+        cin>>n>>m;
+        int arr[m]={0};
+        int arr2[m]={0};
+        fake = n-1;
+        while(n--){
+            string s;
+            cin>>s;
+            for(int i = 0;i<m;i++){
+                arr[i] += s[i];
+                }
+            }
+            while(fake--){
+                string s;
+                cin>>s;
+                for(int i = 0;i<m;i++){
+                    arr2[i] += s[i];
+                    }
+                }
+                string s;
+                for(int i = 0;i<m;i++){
+                    int ele = arr[i] - arr2[i];
+                    char c = ele;
+                    s = s+c;
+                    }
+                    cout<<s<<endl;
+        }
+        return 0;
+    }
