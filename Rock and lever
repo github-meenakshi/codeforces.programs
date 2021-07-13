@@ -1,0 +1,43 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+long long int countBits(long long int n)
+{
+   long long int count = 0;
+   while (n)
+   {
+        count++;
+        n >>= 1;
+    }
+    return count;
+}
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,ans = 0;
+        cin>>n;
+        long long int arr[n+1];
+        map<long long int,long long int> mp;
+        for(int i = 1;i<=n;i++){
+            cin>>arr[i];
+            long long int ele = countBits(arr[i]);
+            if(mp.find(ele) == mp.end()) mp[ele] = 1;
+            else mp[ele]++;
+            }
+                for(auto it : mp){
+                    long long int ele = it.second;
+                    long long int total = (ele*(ele-1))/2;
+                    ans = ans+total;
+                    }
+                cout<<ans<<endl;
+        }
+        return 0;
+    }
+ 
