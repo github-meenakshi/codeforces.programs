@@ -1,0 +1,38 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,steps = 0;
+        cin>>n;
+        long long int arr[n+1];
+        long long int fake[n+1];
+        bool flag = false;
+        bool ans = false;
+        for(int i = 1;i<=n;i++){
+            cin>>arr[i];
+            fake[i] = arr[i];
+            }
+            sort(fake+1,fake+(n+1),greater<int>());
+            for(int i=1;i<=n;i++){
+                if(arr[i]!=fake[i]){
+                    flag = true;
+                    }
+                    if(i!=1){
+                        if(fake[i] == fake[i-1]) ans = true;
+                        }
+                }
+                if(ans == true) cout<<"YES"<<endl;
+                else if(flag == true) cout<<"YES"<<endl;
+                else cout<<"NO"<<endl;
+        }
+        return 0;
+    }
