@@ -1,0 +1,49 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int a,b,count = 0;
+        cin>>a>>b;
+        while(a!=b){
+            if(a>b){
+                long long int diff = a-b;
+                if(diff>10){
+                    int times = diff/10;
+                    int to_subtract = 10*times;
+                    diff = diff-to_subtract;
+                    count = count+times;
+                    a = a-to_subtract;
+                    }
+                    else{
+                        a = a-diff;
+                        count++;
+                        }
+                }
+                else{
+                    long long int diff = b-a;
+                    if(diff>10){
+                        int times = diff/10;
+                        int to_add = 10*times;
+                        diff = diff-to_add;
+                        count = count+times;
+                        a = a+to_add;
+                        }
+                        else{
+                            a = a+diff;
+                            count++;
+                            }
+                    }
+            }
+            cout<<count<<endl;
+        }
+        return 0;
+    }
