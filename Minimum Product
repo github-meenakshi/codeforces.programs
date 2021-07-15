@@ -1,0 +1,44 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int a,b,x,y,n;
+        cin>>a>>b>>x>>y>>n;
+        long long int a1,a2,b1,b2,ans1,ans2,mini1,mini2;
+        long long int n1 = n;
+        a1 = a;
+        b1 = b;
+        a2 = a;
+        b2 = b;
+        //1
+        mini1 = min(n,a1-x);
+        a1 = a1-mini1;
+        n = n-mini1;
+        if(n>0){
+            long long int small = min(n,b1-y);
+            b1 = b1-small;
+            } 
+        ans1 = a1*b1;
+        
+        //2
+        mini2 = min(n1,b2-y);
+        b2 = b2-mini2;
+        n1 = n1-mini2;
+        if(n1>0){
+            long long int small1 = min(n1,a2-x);
+            a2 = a2-small1;
+            } 
+        ans2 = a2*b2;
+        cout<<min(ans2,ans1)<<endl;
+        }
+    }
