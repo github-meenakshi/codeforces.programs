@@ -1,0 +1,35 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,mini1=1000000010,mini2=1000000010,ans = 0;
+        cin>>n;
+        long long int arr1[n];
+        long long int arr2[n];
+        for(int i = 0;i<n;i++){
+            cin>>arr1[i];
+            mini1 = min(arr1[i],mini1);
+            }
+            for(int i = 0;i<n;i++){
+            cin>>arr2[i];
+            mini2 = min(arr2[i],mini2);
+            }
+            for(int i = 0;i<n;i++){
+                long long int first = arr1[i] - mini1;
+                long long int second = arr2[i]-mini2;
+                ans = ans+max(first,second);
+                }
+                cout<<ans<<endl;
+        }
+        return 0;
+    }
