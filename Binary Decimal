@@ -1,0 +1,25 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,maxi = -1;
+        cin>>n;
+        while(n!=0){
+            long long int ele = n%10;
+            maxi = max(maxi,ele);
+            n = n/10;
+            }
+            cout<<maxi<<endl;
+        }
+        return 0;
+    }
