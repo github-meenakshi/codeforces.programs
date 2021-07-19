@@ -1,0 +1,45 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+//int main(){
+//    int t;
+//    cin>>t;
+//    while(t--){
+//        long long int n,k,ans = 0;
+//        cin>>n>>k;
+//        if(n>k) cout<<k<<endl;
+//        else{
+//            long long int rem = k;
+//            while(rem!=0){
+//                if(rem%2 == 1 && rem>n) ans++;
+//                rem = rem/n;
+//                ans+=rem;
+//                }
+//                ans+=k;
+//                if(ans%n == 0) ans--;
+//                cout<<ans<<endl;
+//            }
+//        }
+//        return 0;
+//    }
+ 
+//
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n>>k;
+        int x = k/(n-1);
+        int ans = x+k;
+        if(ans%n == 0) cout<<ans-1<<endl;
+        else cout<<ans<<endl;
+        }
+    }
