@@ -1,0 +1,66 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+//int main(){
+//    int t;
+//    cin>>t;
+//    while(t--){
+//        int n,x,odd = 0,even = 0;
+//        cin>>n>>x;
+//        for(int i = 1;i<=n;i++){
+//            int ele;
+//            cin>>ele;
+//            if(ele%2 == 1){
+//                odd++;
+//                }
+//                else even++;
+//            }
+//            if(n == x && odd%2 == 0) cout<<"NO"<<endl;
+//            else if(odd == 0) cout<<"NO"<<endl;
+//            else if(x%2 == 0 && odd%2 == 0){
+//                if(even == 0) cout<<"NO"<<endl;
+//                else cout<<"YES"<<endl;
+//                }
+//                else if(x%2 == 1 && )
+//            else cout<<"YES"<<endl;
+//        }
+//        return 0;
+//    }
+ 
+//
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,x,even = 0,odd = 0;
+        cin>>n>>x;
+        for(int i = 1;i<=n;i++){
+            int ele;
+            cin>>ele;
+            if(ele%2 == 0) even++;
+            else odd++;
+            }
+            if(odd == 0){
+                cout<<"NO"<<endl;
+                continue;
+                }
+                bool flag = true;
+                for(int i = 1;i<=odd;i+=2){
+                    if(i>x) break;
+                    if((x-i)<=even){
+                        cout<<"YES"<<endl;
+                        flag = false;
+                        break;
+                        }
+                    }
+                    if(flag == true) cout<<"NO"<<endl;
+        }
+        return 0;
+    }
