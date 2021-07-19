@@ -1,0 +1,53 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,k;
+        cin>>n>>k;
+        bool odd = false,even = false;
+        if(k>n) cout<<"NO"<<endl;
+        else if(n%2 == 1){
+            if(k%2 == 1){
+                odd = true;
+                }
+                else cout<<"NO"<<endl;
+            }
+            else{
+                if(k%2 == 0 && k*2<=n) even = true;
+                else if(k%2 == 0 && k*2>n) odd = true;
+                else if(k%2 == 1 && k*2<=n) even = true;
+                else{
+                    cout<<"NO"<<endl;
+                    }
+                }
+                if(odd == true){
+                    cout<<"YES"<<endl;
+                    long long int count = 0;
+                    for(int i = 1;i<k;i++){
+                        cout<<1<<" ";
+                        count++;
+                        }
+                        cout<<(n-count)<<endl;
+                    }
+                    else if(even == true){
+                        cout<<"YES"<<endl;
+                        long long int count = 0;
+                        for(int i = 1;i<k;i++){
+                            cout<<2<<" ";
+                            count++;
+                            }
+                            cout<<(n-2*count)<<endl;
+                        }
+        }
+        return 0;
+    }
