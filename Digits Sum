@@ -1,0 +1,26 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,ans = 0;
+        cin>>n;
+        if(n<9) cout<<0<<endl;
+        else{
+            int rem = n%10;
+            if(rem == 9) ans++;
+            ans = ans+(n/10);
+            cout<<ans<<endl;
+            }
+        }
+        return 0;
+    }
