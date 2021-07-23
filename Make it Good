@@ -1,0 +1,31 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,indii = 0;
+        cin>>n;
+        int arr[n+1];
+        for(int i = 1;i<=n;i++) cin>>arr[i];
+        bool flag = false;
+        for(int i = n;i>=1;i--){
+            if(i!=n && arr[i]<arr[i+1]) flag = true;
+            if(i!=n && arr[i]>arr[i+1] && flag == true){
+                indii = i;
+                break;
+                }
+            }
+            int ans = indii;
+            cout<<ans<<endl;
+        }
+        return 0;
+    }
