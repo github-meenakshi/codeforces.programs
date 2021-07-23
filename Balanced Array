@@ -1,0 +1,95 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+//int main(){
+//    int t;
+//    cin>>t;
+//    while(t--){
+//        string s1,s2;
+//        cin>>s1>>s2;
+//        bool right = true,ans = true;
+//        int prev = -1,len = s2.length(),count = 0;
+//        for(int i = 0;i<s2.length();i++){
+//            char curr = s2[i];
+//            for(int j = 0;j<s1.length();j++){
+//                if(curr == s1[j] && j>prev) {
+//                    count++;
+//                if(right == true){
+//                    prev = j;
+//                    break;
+//                    }
+//                    else{
+//                        ans = false;
+//                        break;
+//                        }
+//                }
+//                else if(curr == s1[j] && j<prev){
+//                    count++;
+//                    bool check = false;
+//                    for(int a = s1.length()-1;a>j;a--){
+//                        if(curr == s1[a]){
+//                            prev = a;
+//                            check = true;
+//                            break;
+//                            }
+//                        }
+//                        if(check == false){
+//                             right = false;
+//                             prev=j;
+//                            }
+//                    }
+//                }
+//                 if(ans == false) break;
+//            }
+//            if(count<s2.length()) cout<<"NO"<<endl;
+//            else if(ans == true) cout<<"YES"<<endl;
+//            else cout<<"NO"<<endl;
+//        }
+//        return 0;
+//    }
+ 
+//
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int divi = n/2;
+        vector<int> odd;
+        vector<int> even;
+        if(divi%2 == 1) cout<<"NO"<<endl;
+        else{
+            cout<<"YES"<<endl;
+            int half = n/2,start = 1,end = 999999;
+            bool flag = true;
+            for(int i = 1;i<=half;i++){
+                if(flag == true){
+                    odd.push_back(start);
+                    odd.push_back(end);
+                    start++;
+                    end--;
+                    flag = false;
+                    }
+                    else{
+                        even.push_back(start);
+                        even.push_back(end);
+                        end--;
+                        start++;
+                        flag = true;
+                        }
+                }
+                for(auto it : even) cout<<it<<" ";
+                for(auto it : odd) cout<<it<<" ";
+                cout<<endl;
+            }
+        }
+        return 0;
+    }
