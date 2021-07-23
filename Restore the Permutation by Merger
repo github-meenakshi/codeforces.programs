@@ -1,0 +1,33 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int size = 2*n;
+        int arr[size];
+        int check[n+1] = {0};
+        for(int i = 0;i<size;i++){
+            cin>>arr[i];
+            }
+            for(int i = 0;i<size;i++){
+                int ele = arr[i];
+                if(check[ele] == 0){
+                    check[ele] = 1;
+                    cout<<ele<<" ";
+                    }
+                }
+                cout<<endl;
+        }
+        return 0;
+    }
