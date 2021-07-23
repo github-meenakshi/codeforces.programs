@@ -1,0 +1,55 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,sum = 0;
+        cin>>n;
+        long long int arr[n+1];
+        for(int i = 1;i<=n;i++){
+            cin>>arr[i];
+            }
+            bool flag = false;
+            long long int mini = -1000000010,maxi = -1;
+            if(arr[1]>0) flag = true;
+            vector<long long int> vec;
+            for(int i = 1;i<=n;i++){
+                if(arr[i]<0){
+                    if(flag == true){
+                        flag=false;
+                        vec.push_back(maxi);
+                        maxi = -1;
+                        mini = max(mini,arr[i]);
+                        }
+                        else{
+                            mini = max(mini,arr[i]);
+                            }
+                    }
+                    else{
+                        if(flag == false){
+                            flag = true;
+                            vec.push_back(mini);
+                            mini = -1000000010;
+                            maxi = max(maxi,arr[i]);
+                            }
+                            else{
+                                maxi = max(maxi,arr[i]);
+                                }
+                        }
+                }
+                if(mini!=-1000000010) vec.push_back(mini);
+                if(maxi!=-1) vec.push_back(maxi);
+                for(auto it : vec) sum+=it;
+                cout<<sum<<endl;
+        }
+        return 0;
+    }
