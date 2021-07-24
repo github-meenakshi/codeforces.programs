@@ -1,0 +1,24 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        float x,y;
+        cin>>x>>y;
+        float total = x+y;
+        if(total>6) total = 6;
+        float rem = 6-total;
+        float ans = rem/6;
+        cout<<fixed<<setprecision(6)<<ans<<endl;
+        }
+        return 0;
+    }
