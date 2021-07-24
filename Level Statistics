@@ -1,0 +1,41 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,prev_x = 0,prev_y = 0;
+        cin>>n;
+        bool flag = true;
+        while(n--){
+            int x,y;
+            cin>>x>>y;
+            if(y>x){
+                flag = false;
+                }
+                else if(x<prev_x || y<prev_y){
+                    flag = false;
+                    }
+                    else{
+                        int diff_x = x-prev_x;
+                        int diff_y = y-prev_y;
+                        if(diff_y>diff_x){
+                            flag = false;
+                            }
+                        }
+                        prev_x = x;
+                        prev_y = y;
+            }
+            if(flag == true) cout<<"YES"<<endl;
+            else cout<<"NO"<<endl;
+        }
+        return 0;
+    }
