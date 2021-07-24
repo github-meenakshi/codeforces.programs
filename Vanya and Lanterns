@@ -1,0 +1,32 @@
+
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+        int n,l;
+        float maxi = -1; 
+        cin>>n>>l;
+        int arr[n+1];
+        for(int i = 1;i<=n;i++){
+            cin>>arr[i];
+            }
+            sort(arr+1,arr+(n+1));
+            for(int i = 1;i<n;i++){
+                float diff = arr[i+1]-arr[i];
+                maxi = max(maxi,diff);
+                }
+                float ans = maxi/2;
+                float first = arr[1] - 0;
+                float second = l-arr[n];
+                ans = max(ans,first);
+                ans = max(ans,second);
+                cout<<fixed<<setprecision(10)<<ans<<endl;
+        return  0;
+    }
