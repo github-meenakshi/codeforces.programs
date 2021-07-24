@@ -1,0 +1,49 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,m,l,count = 0;
+        cin>>n>>m>>l;
+        long long int arr[n+1];
+        long long int arr1[l+1];
+        for(int i = 1;i<=m;i++){
+            int len;
+            cin>>len;
+            for(int j = 1;j<=len;j++){
+                int color;
+                cin>>color;
+                arr[color] = i;
+                }
+            }
+            for(int i = 1;i<=l;i++){
+                cin>>arr1[i];
+                }
+                for(int i = 1;i<l;i++){
+                    long long int ele = arr1[i];
+                    long long int ele1 = arr1[i+1];
+                    long long int list_curr = arr[ele];
+                    long long int list_next = arr[ele1];
+                    if(list_curr!=list_next) count++;
+                    }
+                    count++;
+                    cout<<count<<endl;
+//                    if(l>=2){
+//                        int ele = arr1[l-1];
+//                        int ele1 = arr1[l];
+//                        int list_curr = arr[ele1];
+//                        int list_prev = arr[ele];
+//                        if(list!=)
+//                        }
+        }
+        return 0;
+    }
