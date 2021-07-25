@@ -1,0 +1,100 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+//int main(){
+//    int t;
+//    cin>>t;
+//    while(t--){
+//        int n,sum1 = 0,sum2 = 0,count = 0,ans = 0;
+//        cin>>n;
+//        vector<int> me;
+//        vector<int> frnd;
+//        int k = n-n/4;
+//        for(int i = 1;i<=n;i++){
+//            int x;
+//            cin>>x;
+//            me.push_back(x);
+//            }
+//            count = 0;
+//            for(int i = 1;i<=n;i++){
+//                int x;
+//                cin>>x;
+//                frnd.push_back(x);
+//                }
+//                sort(me.begin(),me.end(),greater<int>());
+//                sort(frnd.begin(),frnd.end(),greater<int>());
+//                for(int i = 1;i<=n;i++){
+//                    if(i<=k){
+//                        auto it1 = me.begin();
+//                        int ele1 = *it1;
+//                        sum1+=ele1;
+//                        me.erase(it1);
+//                        auto it2 = frnd.begin();
+//                        int ele2 = *it2;
+//                        sum2+=ele2;
+//                        frnd.erase(it2);
+//                        }
+//                    }
+//                    if(sum1>=sum2) cout<<ans<<endl;
+//                    else{
+//                        for(int i = n+1;i<=2*n;i++){
+//                            if(i%4 == 0){
+//                                auto it1 = me.begin();
+//                                int ele1 = *it1;
+//                                sum1 = sum1-ele1;
+//                                me.erase(it1);
+//                                auto it2 = frnd.begin();
+//                                int ele2 = *it2;
+//                                sum2 = sum2-ele2;
+//                                frnd.erase(it2);
+//                                }
+//                                sum1 = sum1+100;
+//                                if(sum1>=sum2){
+//                                    ans = i-n;
+//                                    break;
+//                                    }
+//                            }
+//                            cout<<ans<<endl;
+//                        }
+//        }
+//        return 0;
+//    }
+ 
+//Young Explorers
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,ans = 0;
+        cin>>n;
+        map<int,int> mp; 
+        for(int i = 1;i<=n;i++){
+            int x;
+            cin>>x;
+            if(mp.find(x) == mp.end()) mp[x] = 1;
+            else mp[x]++;
+            }
+            int rem=0;
+            for(auto it : mp){
+                int ele = it.first;
+                int times = it.second;
+                if(ele == 1){
+                    ans+=times;
+                    }
+                    else{
+                            times = times+rem;
+                            rem = times%ele;
+                        int groups = times/ele;
+                        ans+=groups;
+                        }
+                }
+                cout<<ans<<endl;
+        }
+        return 0;
+    }
