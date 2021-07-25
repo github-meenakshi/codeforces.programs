@@ -1,0 +1,23 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+       int e,k,count = 0;
+       cin>>e>>k;
+       while(e!=0){
+           count++;
+           e = e/k;
+           }
+           cout<<count<<endl;
+        }
+        return 0;
+    }
