@@ -1,0 +1,24 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,k,sum = 0;
+        cin>>n>>k;
+        long long int p=n-1;
+        long long x=pow(2,p);
+        long long y=pow(2,n)-1;
+        if(k>x) k = x;
+        sum = y*k*2;
+        cout<<sum<<endl;
+        }
+        return 0;
+    }
