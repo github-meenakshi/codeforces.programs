@@ -1,0 +1,39 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int a,b;
+        cin>>a>>b;
+        if(a>b){
+            int x,first;
+            if((b-a)%2 == 0) x = a+1;
+            else x = a;
+            if((x-a)%2!=0) first = (b-x)/2+1;
+            else first = (b-x)/2;
+            cout<<first<<endl;
+            }
+            else if(a == b){
+                cout<<0<<endl;
+                }
+                else{
+                    int x,first,second;
+                    if((b-a)%2 == 0) x = a+1;
+                    else x = a;
+                    if((b-x)%2!=0) first = (b-x)/2+1;
+                    else first = (b-x)/2;
+                    if((x-a)%2!=0) second = (x-a)/2+1;
+                    else second = (x-a)/2;
+                    cout<<(first+second)<<endl;
+                    }
+        }
+        return 0;
+    }
