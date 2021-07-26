@@ -1,0 +1,43 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,maxi = 0,maxi_times = 0;
+        cin>>n;
+        for(long long int i = 2;i*i<=n;i++){
+            long long z = n;
+            long long count = 0;
+            while(z%i==0){
+                z = z/i;
+                count++;
+                }
+                if(count>maxi_times){
+                    maxi_times = count;
+                    maxi = i;
+                    }
+            }
+            if(maxi == 0){
+                cout<<1<<endl;
+                cout<<n<<endl;
+                }
+                else{
+                    cout<<maxi_times<<endl;
+                    while(n%(maxi*maxi) == 0){
+                        cout<<maxi<<" ";
+                        n = n/maxi;
+                        }
+                        cout<<n<<endl;
+                    }
+        }
+        return 0;
+    }
