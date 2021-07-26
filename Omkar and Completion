@@ -1,0 +1,47 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,end = 1000,count = 0;
+        cin>>n;
+        int arr[n+1];
+        bool flag = true;
+        for(int i = 1;i<=n/2;i++){
+            if(count == 2){
+                end--;
+                arr[i] = end;
+                count = 1;
+                }
+                else{
+                    arr[i] = end;
+                    count++;
+                    }
+            }
+            count = 0;
+            end = 1000;
+            for(int i = n;i>=n/2;i--){
+                if(count == 2){
+                end--;
+                arr[i] = end;
+                count = 1;
+                }
+                else{
+                    arr[i] = end;
+                    count++;
+                    }
+                }
+            for(int i = 1;i<=n;i++) cout<<arr[i]<<" ";
+            cout<<endl;
+        }
+        return 0;
+    }
