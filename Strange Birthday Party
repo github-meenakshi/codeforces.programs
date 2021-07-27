@@ -1,0 +1,54 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,m,count = 1,sum = 0;
+        cin>>n>>m;
+        long long int k[n+1];
+        long long int c[m+1];
+        for(int i = 1;i<=n;i++){
+            cin>>k[i];
+            }
+            for(int i = 1;i<=m;i++){
+                cin>>c[i];
+                }
+                long long int limit=n/2;
+//                if(n%2 == 0) limit = n/2;
+//                else limit = (n/2)+1;
+                sort(k+1,k+(n+1),greater<int>());
+                for(int i = 1;i<=n;i++){
+                    long long int ele=k[i];
+                    if(ele>limit){
+                        long long int curr = c[ele];
+                        long long int count_wala = 1000000010;
+                        if(count<=m) count_wala = c[count];
+                        if(curr>count_wala){
+                            count++;
+                            sum+=count_wala;
+                            }
+                            else sum+=curr;
+                        }
+                        else{
+                            long long int count_wala = 1000000010;
+                            if(count<=m) count_wala = c[count];
+                             if(c[ele]>count_wala){
+                                count++;
+                                sum+=count_wala;
+                                }
+                                else sum+=c[ele];
+                            }
+                    }
+                    cout<<sum<<endl;
+        }
+        return 0;
+    }
