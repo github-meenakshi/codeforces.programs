@@ -1,0 +1,39 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int x;
+        cin>>x;
+        if(x>45) cout<<-1<<endl;
+        else if(x<=9) cout<<x<<endl;
+        else{
+             int start = 9,rem;
+             string ans;
+             while(x!=0){
+                 if(x>=start){
+                     x = x-start;
+                     rem = start;
+                     start--;
+                     }
+                     else{
+                         rem = x;
+                         x = 0;
+                         }
+                         char to_add = rem+'0';
+                         ans = to_add+ans;
+                 }
+                cout<<ans<<endl;
+            }
+        }
+        return 0;
+    }
