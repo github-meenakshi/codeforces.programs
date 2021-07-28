@@ -1,0 +1,46 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+       long long int n,mini = 1000000010,ans = 0;
+       cin>>n;
+       //long long int arr[n+1];
+       map<long long int,long long int> mp;
+       for(int i=1;i<=n;i++){
+           long long int x;
+           cin>>x;
+           if(mp.find(x) == mp.end()) mp[x]=1;
+           else mp[x]++;
+           }
+           auto it = mp.begin();
+           long long int small = it->first;
+           mp.erase(it);
+//           auto it1 = mp.begin();
+//           long long int ele1 = it1->first;
+//           if(ele1 == 2 && small == 1) cout<<n<<endl;
+           for(auto it2 : mp){
+                  long long int ele = it2.first;
+                  long long int times=it2.second;
+                  long long int modi = ele-small;
+                  if(ele%modi == small){
+                      ans+=times;
+                      }
+                      else{
+                          ans = n;
+                          break;
+                          }
+               }
+               cout<<ans<<endl;
+        }
+        return 0;
+    }
