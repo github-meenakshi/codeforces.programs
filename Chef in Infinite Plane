@@ -1,0 +1,117 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+
+//int main(){
+//    int t;
+//    cin>>t;
+//    while(t--){
+//        int n;
+//        cin>>n;
+//        string s;
+//        cin>>s;
+//            if(s[0]!='2'){
+//                int two = 0,zero = 0,count = 0;
+//                for(int i = n-4;i<n;i++){
+//                    if(s[i] == '2'){
+//                        two+=i;
+//                        count++;
+//                        }
+//                    else if(s[i] == '0'){
+//                        zero+=i;
+//                        count++;
+//                        }
+//                    }
+//                    if(count == 4 && two%2 == 0 && zero%2 == 0) cout<<"YES"<<endl;
+//                    else cout<<"NO"<<endl;
+//                }
+//                else if(s[0] == '2'){
+//                    int zero_count = 0,count = 0,zero = 0;
+//                    for(int i = n-3;i<n;i++){
+//                        if(s[i] == '0'){
+//                            count++;
+//                            zero_count++;
+//                            zero+=i;
+//                            }
+//                            else if(s[i] == '2'){
+//                                count++;
+//                                }
+//                        }
+//                        if(count == 3 && zero%2 == 0 && zero_count == 2) cout<<"YES"<<endl;
+//                        else cout<<"NO"<<endl;
+//                    }
+//                    else{
+//                        bool flag = false;
+//                        for(int i = 0;i<n;i++){
+//                            if(s[i] == '2'){
+//                                flag = true;
+//                                int indii = i;
+//                                indii++;
+//                                int count = 0,zero = 0,two=0,zero_times = 0,two_times = 0;
+//                                while(count!=3 && indii<n){
+//                                    if(s[indii] == '2'){
+//                                        two_times++;
+//                                        two+=indii;
+//                                        count++;
+//                                        indii++;
+//                                        }
+//                                        else if(s[indii] == '0'){
+//                                            zero_times++;
+//                                            zero+=indii;
+//                                            count++;
+//                                            indii++;
+//                                            }
+//                                    }
+//                                    if(two_times == 1 && zero_times == 2 && indii == n){
+//                                        if(two-i == 2 && zero-i == 5){
+//                                            //cout<<"YES"<<endl;
+//                                            flag = true;
+//                                            }
+//                                        else cout<<"NO"<<endl;
+//                                        }
+//                                        else cout<<"NO"<<endl;
+//                                        break;
+//                                }
+//                            }
+//                            if(flag == false) cout<<"NO"<<endl;
+//                        }
+//        }
+//        return 0;
+//    }
+
+//
+unsigned countBits(unsigned int number){
+    return (int)log2(number)+1;
+}
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,start = 1,ans = 0;
+        cin>>n;
+//        long long int arr[n+1];
+           map<long long int,long long int> mp;
+        for(int i = 1;i<=n;i++){
+            long long int x;
+            cin>>x;
+            if(mp.find(x) == mp.end()) mp[x] = 1;
+            else{
+                auto it = mp.find(x);
+                long long int secondi = it->second;
+                if(secondi<(x-1)) mp[x]++;
+                }
+            }
+            for(auto it : mp){
+                long long int seconddi = it.second;
+                ans+=seconddi;
+                }
+            cout<<ans<<endl;
+        }
+        return 0;
+    }
