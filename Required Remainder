@@ -1,0 +1,36 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int x,y,n;
+        cin>>x>>y>>n;
+        long long int rem = n%x;
+        if(x<n){
+            if(y>rem){
+                n = n-rem;
+                long long int to_sub = x-y;
+                n = n-to_sub;
+                }
+                else if(y < rem){
+                    rem = rem-y;
+                    n = n - rem;
+                    }
+            }
+            else if(x>n) n = y;
+            else{
+                if(y!=0) n = y;
+                }
+                cout<<n<<endl;
+        }
+        return 0;
+    }
