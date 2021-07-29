@@ -1,0 +1,42 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+       long long int n,k,maxi = 0;
+        cin>>n>>k;
+        //int arr[n+1];
+        map<long long int,long long int> mp;
+        for(int i = 1;i<=n;i++){
+            long long int x;
+            cin>>x;
+            long long int rem = x%k;
+            if(rem == 0) continue;
+            if(mp.find(rem)!=mp.end()){
+                auto it = mp.find(rem);
+                long long int times = it->second;
+                long long int to_add = k*times;
+                long long int total_add = k-rem+to_add;
+                mp[rem]++;
+                maxi = max(maxi,total_add);
+                }
+                else{
+                    maxi = max(maxi,k-rem);
+                    mp[rem] = 1;
+                    }
+             }
+             //if(maxi == -1) maxi = 0;
+             if(maxi!=0) maxi = maxi+1;
+             cout<<maxi<<endl;
+        }
+        return 0;
+    }
