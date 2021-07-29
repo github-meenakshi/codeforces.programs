@@ -1,0 +1,35 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,count = 0;
+        cin>>n;
+        bool flag = true;
+        while(n!=1){
+            if(n%6 == 0){
+                n = n/6;
+                }
+                else{
+                    if(n%3 == 0) n = n*2;
+                    else{
+                        flag = false;
+                        break;
+                        }
+                    }
+                    count++;
+            }
+            if(flag == false) cout<<-1<<endl;
+            else cout<<count<<endl;
+        }
+        return 0;
+    }
