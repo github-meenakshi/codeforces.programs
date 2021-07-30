@@ -1,0 +1,41 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        map<int,int> mp;
+        bool flag = false;
+        for(int i = 1;i<=n;i++){
+            int x;
+            cin>>x;
+            if(mp.find(x) == mp.end()) mp[x] = 1;
+            else{
+                mp[x]++;
+                flag = true;
+                }
+             }
+             if(flag == true) cout<<0<<endl;
+             else{
+                 int prev=100000,mini=100000;
+                 for(auto it : mp){
+                     int ele = it.first;
+                     int diff = abs(prev-ele);
+                     mini=min(diff,mini);
+                     prev=ele;
+                     }
+                     cout<<mini<<endl;
+                 }
+        }
+        return 0;
+    }
