@@ -1,0 +1,25 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int a,b;
+        cin>>a>>b;
+        int mini = min(a,b);
+        int side_of_square = mini*2;
+        int maxi = max(a,b);
+        int side = max(maxi,side_of_square);
+        int area_of_square = pow(side,2);
+        cout<<area_of_square<<endl;
+        }
+        return 0;
+    }
