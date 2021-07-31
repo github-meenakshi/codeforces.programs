@@ -1,0 +1,39 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int arr1[3],arr2[3];
+        for(int i = 0;i<3;i++) cin>>arr1[i];
+        for(int i = 0;i<3;i++) cin>>arr2[i];
+        long long int positive = min(arr2[1],arr1[2]);
+        arr2[1]-=positive;
+        arr1[2]-=positive;
+        long long int two_mini = min(arr1[0],arr2[2]);
+        arr1[0]-=two_mini;
+        arr2[2]-=two_mini;
+        long long int both_two = min(arr1[2],arr2[2]);
+        arr1[2]-=both_two;
+        arr2[2]-=both_two;
+        long long int one_mini = min(arr2[1],arr1[0]);
+        arr1[0]-=one_mini;
+        arr2[1]-=one_mini;
+        int both_one = min(arr2[1],arr1[1]);
+        arr1[1]-=both_one;
+        arr2[1]-=both_one;
+        long long int ans = positive*2;
+        long long int negative = min(arr1[1],arr2[2]);
+        ans = ans-(negative*2);
+        cout<<ans<<endl;
+        }
+        return 0;
+    }
