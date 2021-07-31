@@ -1,0 +1,31 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        string b,ans;
+        cin>>b;
+        int len = b.length();
+        bool flag = true;
+        for(int i = 0;i<len;i++){
+            if(flag == true){
+                ans = ans+b[i];
+                flag = false;
+                }
+                else flag = true;
+            }
+            if(len%2 == 0) ans = ans+b[len-1];
+            cout<<ans<<endl;
+        }
+        return 0;
+    }
