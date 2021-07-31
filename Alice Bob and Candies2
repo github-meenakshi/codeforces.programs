@@ -1,0 +1,63 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,first = 1,size_alice = 0,size_bob = 0,count = 0;
+        cin>>n;
+        long long int arr[n+1];
+        for(int i = 1;i<=n;i++){
+            cin>>arr[i];
+            }
+            long long int prev = arr[1]-1,last = n;
+            bool flag = true,ans = true;
+                while(ans == true){
+                if(flag == true){
+                    bool check = false;
+                    flag = false;
+                    long long int sum = 0;
+                    while(first<=last){
+                        sum+=arr[first];
+                        size_alice+=arr[first];
+                        first++;
+                        if(sum>prev){
+                            prev=sum;
+                            check = true;
+                            break;
+                            }
+                        }
+                        if(check == false) ans = false;
+                    }
+                    else{
+                        bool check = false;
+                        flag = true;
+                        long long int sum = 0;
+                        while(last>=first){
+                            sum+=arr[last];
+                            size_bob+=arr[last];
+                            last--;
+                            if(sum>prev){
+                                prev = sum;
+                                check = true;
+                                break;
+                                }
+                            }
+                            if(check == false) ans = false;
+                            //if(last == first)
+                        }
+                        if(first>last) ans = false;
+                        count++;
+                }
+                cout<<count<<" "<<size_alice<<" "<<size_bob<<endl;
+        }
+        return 0;
+    }
