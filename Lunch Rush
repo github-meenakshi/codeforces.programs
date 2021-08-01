@@ -1,0 +1,29 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+ 
+int main(){
+    int n,k,maxi = -1000000010;
+    cin>>n>>k;
+    while(n--){
+        int f,t;
+        cin>>f>>t;
+        if(t>k){
+            int joy = f-(t-k);
+            maxi = max(maxi,joy);
+            }
+            else{
+                maxi = max(maxi,f);
+                }
+        }
+        cout<<maxi<<endl;
+        
+        return 0;
+    }
