@@ -1,0 +1,50 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+ 
+//Mere Array
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n;
+        cin>>n;
+        long long int arr[n+1];
+        vector<long long int> vec;
+        for(int i = 1;i<=n;i++){
+            cin>>arr[i];
+            }
+            long long int mini = *min_element(arr+1,arr+(n+1));
+            for(int i = 1;i<=n;i++){
+                if(__gcd(arr[i],mini) == mini){
+                    vec.push_back(arr[i]);
+                    arr[i] = -1;
+                    }
+                }
+                sort(vec.begin(),vec.end());
+                int j = 0;
+                for(int i = 1;i<=n;i++){
+                    if(arr[i] == -1){
+                        arr[i] = vec[j];
+                        j++;
+                        }
+                    }
+                    bool flag = true;
+                    for(int i = 1;i<n;i++){
+                        if(arr[i]>arr[i+1]){
+                            flag = false;
+                            break;
+                            }
+                        }
+                        if(flag == false) cout<<"NO"<<endl;
+                        else cout<<"YES"<<endl;
+        }
+        return 0;
+    }
