@@ -1,0 +1,84 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+using namespace std;
+ 
+//int main(){
+//    ll n;
+//    cin>>n;
+//    ll arr[n+1];
+//    map<ll,ll> mp;
+//    ll dp[100010]={0};
+//    for(int i = 1;i<=n;i++){
+//        cin>>arr[i];
+//        }
+//        for(int i = 1;i<=n;i++){
+//            ll ele = arr[i];
+//            if(mp.find(ele) == mp.end()) mp[ele] = i;
+//            else{
+//                auto it = mp.find(ele);
+//                ll last_index = it->second;
+//                if(last_index == -1) continue;
+//                ll diff = i-last_index;
+//                ll diff_ap = dp[ele];
+//                if(diff_ap == 0){
+//                    dp[ele] = diff;
+//                    mp[ele] = i;
+//                    }
+//                else{
+//                    if(diff_ap!=diff) mp[ele] = -1;
+//                    else mp[ele] = i;
+//                    }
+//                }
+//            }
+//            for(auto it1 = mp.begin();it1!=mp.end();it1++){
+//                ll check = it1->second;
+//                if(check==-1) mp.erase(it1);
+//                }
+//                cout<<mp.size()<<endl;
+//                for(auto it : mp){
+//                    ll ele = it.first;
+//                    cout<<ele<<" "<<dp[ele]<<endl;
+//                    }
+//                    
+//                    return 0;
+//    }
+ 
+//
+//int main(){
+//    int t;
+//    cin>>t;
+//    while(t--){
+//        int n;
+//        cin>>n;
+//        if(n%2 == 0){
+//            cout<<n/2<<endl;
+//            }
+//            else{
+//                if(n == 1) cout<<1<<endl;
+//                else if(n == 3) cout<<2<<endl;
+//                else cout<<n/2+1<<endl;
+//                }
+//        }
+//        return 0;
+//    }
+ 
+//Magical Calender
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll n,r;
+        cin>>n>>r;
+        if(n<=r) cout<<(n*(n-1))/2+1<<endl;
+        else cout<<(r*(r+1))/2<<endl;
+        }
+        return 0;
+    }
