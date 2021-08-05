@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+int n,m,arr[70][70];
+int main(){
+	int tt;
+	cin >> tt;
+ 
+	for(int qq=0; qq<tt; qq++){
+		cin >> n >> m;
+		set<int> r, c;
+ 
+		for(int i=1; i <= n; i++){
+			for(int j=1; j <= m; j++){
+				cin >> arr[i][j];
+				if(arr[i][j]==1){
+					r.insert(i);
+					c.insert(j);
+				}
+			}
+		}
+ 
+		int mn = min(n-r.size(), m-c.size());
+		if((mn&1)) puts("Ashish");
+		else puts("Vivek");
+	}
+}
