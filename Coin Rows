@@ -1,0 +1,36 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll m,ftn = 0;
+        cin>>m;
+        ll arr[3][m+1];
+        for(int i = 1;i<=2;i++){
+            for(int j = 1;j<=m;j++){
+                 cin>>arr[i][j];
+                if(i == 1 && j>1) ftn+=arr[i][j];
+                }
+            }
+            ll second = 0,mini = 1000000010;
+            if(m == 1) mini = 0;
+            for(int i = 1;i<=m;i++){
+                ll maxi = max(ftn,second);
+                mini = min(maxi,mini);
+                if(i<m) ftn-=arr[1][i+1];
+                second+=arr[2][i];
+                }
+            cout<<mini<<endl;
+        }
+        return 0;
+    }
