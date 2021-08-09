@@ -1,0 +1,46 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        double W,H,w,h,mini_x = 1000000010,mini_y = 1000000010;
+        cin>>W>>H;
+        double x1,y1,x2,y2,left,right,up,down;
+        cin>>x1>>y1>>x2>>y2;
+        cin>>w>>h;
+        left = x1;
+        right = W-x2;
+        up = H-y2;
+        down = y1;
+        if(left+right<w && up+down<h) cout<<-1<<endl;
+        else{
+            if(left+right>=w){
+                double maxi = max(left,right);
+                if(maxi>=w){
+                    mini_x = 0;
+                    }
+                    else mini_x = w-maxi;
+                }
+                if(up+down>=h){
+                    double maxi = max(up,down);
+                    if(maxi>=h){
+                        mini_y = 0;
+                        }
+                        else mini_y = h-maxi;
+                    }
+                    cout<<fixed<<setprecision(9)<<min(mini_y,mini_x)<<endl;
+            }
+        }
+        return 0;
+    }
