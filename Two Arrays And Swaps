@@ -1,0 +1,51 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+#define mod 1000000007
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll n,k,sum = 0;
+        cin>>n>>k;
+        multiset<int> a;
+        multiset<int,greater<int> > b;
+        for(int i = 1;i<=n;i++){
+            int x;
+            cin>>x;
+            sum+=x;
+            a.insert(x);
+            }
+            for(int i = 1;i<=n;i++){
+                int x;
+                cin>>x;
+                b.insert(x);
+                }
+                for(int i = 1;i<=k;i++){
+                    auto it1 = a.begin();
+                    auto it2 = b.begin();
+                    ll large_b = *it2;
+                    ll small_a = *it1;
+                    if(large_b>small_a){
+                        sum-=small_a;
+                        sum+=large_b;
+                        a.erase(it1);
+                        b.erase(it2);
+                        }
+                        else{
+                            break;
+                            }
+                    }
+                    cout<<sum<<endl;
+        }
+        return 0;
+    }
