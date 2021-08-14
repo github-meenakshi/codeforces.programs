@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+ 
+using namespace std;
+using ll = long long;
+const int maxn = 1e5+5; 
+const ll inf = 1e15;
+ 
+ll a[maxn],b[maxn];
+ 
+int main(){
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	
+	ll t,n,bs,as,ans;
+	cin >> t;
+	while(t--){
+		cin >> n;
+			
+		for(int i=1;i<=n;i++)
+			cin >> a[i];
+		for(int i=1;i<=n;i++)
+			cin >> b[i];
+			
+		sort(a+1,a+n+1);
+		sort(b+1,b+n+1);
+		
+		as=bs=0;
+		for(int i=1;i<=n;i++){
+			bs+=b[i];
+			if(i%4==0)
+				bs-=b[i/4];
+		}
+		
+		for(int i=1;i<=n;i++){
+			as+=a[i];
+			if(i%4==0)
+				as-=a[i/4];
+		}
+		
+		ans=0;
+		ll i = n+1;
+		ll j = n/4;
+		while(bs>as){
+			as+=100;
+			if(i%4==0)
+				as-=a[i/4];
+			if(i%4!=0&&j>0){
+				bs+=b[j];
+				j--;
+			}
+			i++;	
+			ans++;
+		}
+		cout << ans << "\n";
+	}
+}
