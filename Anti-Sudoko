@@ -1,0 +1,64 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+using namespace std;
+ 
+int  main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n = 10;
+        int arr[n][n];
+        for(int i = 1;i<n;i++){
+            string str;
+            cin>>str;
+            for(int j = 1;j<=9;j++){
+                int ele = str[j-1]-48;
+                arr[i][j] = ele;
+                }
+            }
+            set<int> row;
+            set<int> col;
+       for(int i = 1;i<n;i++){
+           for(int j = 1;j<n;j++){
+               if(row.find(i)==row.end() && col.find(j)==col.end()){
+               int roww,coll;
+                if(i>=1 && i<=3 && j%3 == 1){
+                   arr[i][j] = (arr[i][j]%9)+1;
+                   roww = i;
+                   coll = j;
+                   }
+               else if(i>=4 && i<=7 && j%3 == 2){
+                   arr[i][j] = (arr[i][j]%9)+1;
+                   roww = i;
+                   coll = j;
+                   }
+               else if(i>=7 && i<=10 && j%3 == 0){
+                   arr[i][j] = (arr[i][j]%9)+1;
+                   roww = i;
+                   coll = j;
+                   }
+                   row.insert(roww);
+                   col.insert(coll);
+               }
+           }
+            }
+           
+            for(int i = 1;i<=9;i++){
+                for(int j = 1;j<=9;j++){
+                    cout<<arr[i][j];
+                    }
+                    cout<<endl;
+                }
+        }
+        return 0;
+    }
