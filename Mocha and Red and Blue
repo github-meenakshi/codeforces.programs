@@ -1,0 +1,68 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll n;
+        cin>>n;
+        string s;
+        cin>>s;
+        ll len = s.length();
+        char first = 'z';
+        ll first_indii;
+        for(int i = 0;i<len;i++){
+            if(s[i]!='?'){
+                if(first=='z'){
+                    first = s[i];
+                    first_indii = i;
+                    }
+                }
+            }
+//            cout<<first<<" "<<first_indii<<endl;
+//            cout<<endl;
+        for(int i = 0;i<len;){
+            if(s[i] == '?'){
+                while(s[i]=='?'){
+                    if(i == 0){
+                        if(first!='z'){
+                            ll diff = first_indii;
+                            if(diff%2 == 1){
+                                if(first == 'B') s[i] = 'R';
+                                else s[i] = 'B';
+                                }
+                                else if(diff%2 == 0){
+                                    if(first == 'B') s[i] = 'B';
+                                    else s[i]='R';
+                                    }
+                            }
+                            else{
+                        if(s[i+1] == 'R') s[i] = 'B';
+                        else s[i] = 'R';
+                        }
+                    }
+                        else{
+                            if(s[i-1] == 'R') s[i] = 'B';
+                            else s[i] = 'R';
+                            }
+                            i++;
+                    }
+                }
+                else i++;
+            }
+            cout<<s<<endl;
+        }
+        return 0;
+    }
