@@ -1,0 +1,68 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+using namespace std;
+const int sizes = 1000000;
+bool arr[sizes+1];
+vector<ll> vec;
+void sieve(){
+    for(int i = 2;i*i<sizes;i++){
+        if(arr[i] == true){
+            for(int j=i*i;j<sizes;j+=i){
+            arr[j] = false;
+            }
+            }
+        }
+        for(int i = 2;i<sizes;i++){
+            if(arr[i] == true) vec.push_back(i);
+            }
+    }
+int main(){
+    memset(arr,true,sizeof arr);
+    sieve();
+    int t;
+    cin>>t;
+    while(t--){
+        ll d,prime=-1,prime2 = -1;
+        cin>>d;
+//        if(d == 1) cout<<6<<endl;
+//        else if(d == 2) cout<<15<<endl;
+//        else{
+            for(auto it : vec){
+            ll curr = it;
+            if(curr>d){
+                if(prime == -1){
+                prime = curr;
+                    }
+                    else{
+                        ll diff = curr-prime;
+                        if(diff>=d){
+                            prime2 = curr;
+                            break;
+                            }
+                        }
+                }
+            }
+            ll first=-1,second=-1;
+            first = pow(prime,3);
+            if(prime2 == -1){
+                second = first+1;
+                }
+                else{
+                    second = prime*prime2;
+                    }
+            ll ans = min(first,second);
+            cout<<ans<<endl;
+            }
+        //}
+        return 0;
+    }
