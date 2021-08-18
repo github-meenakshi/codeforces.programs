@@ -1,0 +1,46 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int arr[n+1];
+        bool flag = true,first = false,ans=false;
+        for(int i = 1;i<=n;i++){
+            cin>>arr[i];
+            if(arr[i]>1 && flag == true && first == false){
+                ans=  true;
+                first = true;
+                }
+            else if(arr[i]>1 && flag == false && first == false){
+                ans = false;
+                first = true;
+                }
+            else if(arr[i] == 1){
+                if(flag == true) flag = false;
+                else flag = true;
+                }  
+            }
+            if(first == false){
+                if(n%2 == 0) cout<<"Second"<<endl;
+                else cout<<"First"<<endl;
+                }
+            else if(ans == true) cout<<"First"<<endl;
+            else cout<<"Second"<<endl;
+        }
+        return 0;
+    }
