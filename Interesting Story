@@ -1,0 +1,37 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+	int t;cin>>t;
+	while(t--){
+		int n;cin>>n;
+		string st;
+		vector<string> str;
+		for(int i = 0;i<n;i++){
+			cin>>st;
+			str.push_back(st);
+		}
+		int ans = 0;
+		for(int pis = 0;pis < 26;pis++){
+			vector<int> diff;
+			for(string s : str){
+				int d = 0;
+				for(auto j : s){
+					if(int(j) -97 == pis){d++;}
+					else{d--;}
+				}
+				diff.push_back(d);
+			}
+			sort(diff.begin(),diff.end(),greater<int>());
+			int mx = 0,prev = 0;
+			for(int i:diff){
+				prev += i;
+				if(prev>0){
+					mx++;
+				}
+			}
+			ans = max(ans,mx);
+		}
+		cout<<ans<<endl;
+	}
+}
