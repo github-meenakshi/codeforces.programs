@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+	ll n,s,p,q;
+	scanf("%lld",&n);
+	for(ll i=1ll;i<=n;i++)
+		scanf("%lld",&s),p=ll(sqrt(s-1)),q=s-p*p,printf("%lld %lld\n",q>p?p+1:q,q<=p?p+1:2*p+2-q);
+	return 0;
+}
