@@ -1,0 +1,12 @@
+#import<bits/stdc++.h>
+using namespace std;
+int c,i,j,n,a[105];
+main(){
+ for(cin>>n;j<n;)
+ cin>>a[j++];
+ for(sort(a,a+n);i<n;i++)
+ if(a[i])
+ for(c++,j=i;++j<n;)
+ a[j]%a[i]?:(a[j]=0);
+ cout<<c;
+}
