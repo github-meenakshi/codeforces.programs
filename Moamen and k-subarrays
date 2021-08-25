@@ -1,0 +1,45 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll n,k,count = 0,prev;
+        cin>>n>>k;
+        map<ll,ll> mp;
+        for(int i = 1;i<=n;i++){
+            ll x;
+            cin>>x;
+            mp[x] = i;
+            }
+            auto it1 = mp.begin();
+            prev = it1->second;
+            for(auto it : mp){
+                ll curr = it.second;
+                if(curr<prev){
+                    count++;
+                    prev = curr;
+                    }
+                    else{
+                        if(abs(prev-curr)!=1) count++;
+                        prev = curr;
+                        }
+                }
+//                cout<<count<<endl;
+                if(count<=k) cout<<"YES"<<endl;
+                else cout<<"NO"<<endl;
+        }
+        return 0;
+    }
