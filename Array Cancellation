@@ -1,0 +1,48 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll n,positive = 0,sum = 0;
+        cin>>n;
+        ll arr[n];
+        for(int i = 0;i<n;i++){
+            cin>>arr[i];
+            if(arr[i]>0) positive+=arr[i];
+            if(arr[i]<0){
+                if(positive>0){
+                    if(positive == abs(arr[i])){
+                        positive = 0;
+                        arr[i] = 0;
+                        }
+                        else if(positive>abs(arr[i])){
+                            positive = positive+arr[i];
+                            arr[i] = 0;
+                            }
+                            else if(positive<abs(arr[i])){
+                                arr[i] = positive+arr[i];
+                                positive = 0;
+                                }
+                    }
+                }
+            }
+            for(auto it : arr){
+                if(it<0) sum+=abs(it);
+                }
+                cout<<sum<<endl;
+        }
+        return 0;
+    }
