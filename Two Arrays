@@ -1,0 +1,59 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+using namespace std;
+//arr[2][1]=='0'? '1':'0';
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll n,T;
+        cin>>n>>T;
+        map<ll,ll> pehla; //denotes 0
+        map<ll,ll> doosra; //denotes 1
+        char arr[n];
+        ll neg = -1;
+        for(int i=0;i<n;i++){
+            int ele,x;
+            cin>>ele;
+            if(ele<=T){
+                x = T-ele;
+                }
+                else x = neg--;
+            if(pehla.find(x) == pehla.end()){
+                pehla[ele] = 1;
+                arr[i] = '0';
+                }
+            else if(doosra.find(x) == doosra.end()){
+                doosra[ele] = 1;
+                arr[i] = '1';
+                }
+            else{
+                auto it1 = pehla.find(x);
+                auto it2 = doosra.find(x);
+                ll times1 = it1->second;
+                ll times2 = it2->second;
+                if(times1<=times2){
+                    pehla[ele]++;
+                    arr[i] = '0';
+                    }
+                    else{
+                        doosra[ele]++;
+                        arr[i] = '1';
+                        }
+                }
+            }
+            for(auto it : arr) cout<<it<<" ";
+            cout<<endl;
+        }
+        return 0;
+    }
