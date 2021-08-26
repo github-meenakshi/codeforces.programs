@@ -1,0 +1,34 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,x,right = 0,left = 0;
+        cin>>n;
+        string arr;
+        cin>>arr;
+        for(int i = 0;i<n;i++){
+            if(arr[i] == ')'){
+                if(right>0) right--;
+                else left++;
+                }
+                else if(arr[i]=='(') right++;
+            }
+            ll ans = min(left,right);
+            cout<<ans<<endl;
+        }
+        return 0;
+    }
