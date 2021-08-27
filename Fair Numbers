@@ -1,0 +1,47 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<endl;
+using namespace std;
+//Forget Ratings and Enjoy the Contest
+ll solve(){
+    ll n;
+    cin>>n;
+    while(true){
+        ll fake = n;
+        bool check = false;
+        while(fake!=0){
+            ll curr = fake%10;
+            fake = fake/10;
+            if(curr == 0) continue;
+            if(n%curr!=0){
+                check = true;
+                break;
+                }
+            }
+            if(check == true) n++;
+            else break;
+        }
+        return n;
+    }
+    
+int main(){
+    ll t;
+    cin>>t;
+    while(t--){
+        ll ans=solve();
+        cout<<ans<<endl;
+        }
+        return 0;
+    }
