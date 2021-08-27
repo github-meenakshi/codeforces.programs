@@ -1,0 +1,57 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<endl;
+using namespace std;
+//Meri ek Taang nakli hai , mai hockey ka bhut bdaa khiladi tha...
+void solve(){
+    int n,m,sx,sy;
+    cin>>n>>m>>sx>>sy;
+    int arr[n+1][m+1];
+    memset(arr,0,sizeof arr);
+    for(int i = sx;i>=1;i--){
+        arr[i][sy] = -1;
+        cout<<i<<" "<<sy<<endl;
+        }
+        int j = 0;
+        bool flag = true;
+        for(int i = 1;i<=n;i++){
+            if(flag == true){
+                for(j=j+1;j<=m;j++){
+                    if(arr[i][j]!=-1){
+                        arr[i][j] = -1;
+                        cout<<i<<" "<<j<<endl;
+                        }
+                    }
+                    flag = false;
+                }
+                else{
+                    for(j=j-1;j>=1;j--){
+                        if(arr[i][j]!=-1){
+                            arr[i][j] = -1;
+                            cout<<i<<" "<<j<<endl;
+                            }
+                        }
+                        flag = true;
+                    }
+            }
+    }    
+int main(){
+//    ll t;
+//    cin>>t;
+//    while(t--){
+        solve();
+//        }
+        return 0;
+    }
