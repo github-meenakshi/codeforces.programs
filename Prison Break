@@ -1,0 +1,7 @@
+#include<iostream>
+main(){int t,x,y;std::cin>>t;
+while(t--)
+{std::cin>>x>>y;
+std::cout<<x*y<<"\n";
+}
+}
