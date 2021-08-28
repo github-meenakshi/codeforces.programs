@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+int h,i,n,t,x,y,z;
+string s;
+main()
+{
+	cin>>t;
+	while(t--)
+	{
+		cin>>n>>x>>y>>h>>s;
+		for(i=z=0;i<n;i++)
+		{
+			if(s[i]&1)z+=min(x+h,y);
+			else z+=min(x,y+h);
+		}
+		cout<<z<<endl;
+	}
+}
