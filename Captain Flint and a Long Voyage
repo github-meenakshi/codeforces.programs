@@ -1,0 +1,38 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <stack>
+#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<endl;
+using namespace std;
+//Meri ek Taang nakli hai , mai hockey ka bhut bdaa khiladi tha...
+void solve(){
+    ll n,tbe;
+    cin>>n;
+    string ans;
+    if(n%4 == 0) tbe = n/4;
+    else tbe = n/4+1;
+    for(int i = 1;i<=n-tbe;i++){
+        ans = ans+'9';
+        }
+        for(int i = 1;i<=tbe;i++) ans = ans+'8';
+        cout<<ans<<endl;
+    }
+int main(){
+    ll t = 1;
+    cin>>t;
+    while(t--){
+        solve();
+        }
+        return 0;
+    }
