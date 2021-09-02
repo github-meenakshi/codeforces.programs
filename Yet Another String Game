@@ -1,0 +1,5 @@
+
+ 
+for i in range(int(input())):
+    s = input()
+    print(''.join(('b' if x == 'a' else 'a') if j % 2 == 0 else ('y' if x == 'z' else 'z')for j, x in enumerate(s)))
