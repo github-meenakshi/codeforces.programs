@@ -1,0 +1,81 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<endl;
+using namespace std;
+const int sizes = 110;
+int sieve_arr[sizes];
+void sieve(){
+    for(int i=2;i*i<=108;i++){
+        if(sieve_arr[i] == 0){
+            for(int j = i*i;j<=108;j+=i){
+                sieve_arr[j] = 1;
+                }
+            }
+        }
+//        for(int i = 2;i<=100;i++){
+//            cout<<i<<" "<<sieve_arr[i]<<endl;
+//            }
+    }
+void solve(){
+    ll k,n = 0;
+    cin>>k;
+    string s,ans;
+    cin>>s;
+    int arr[k];
+    for(int i = 0;i<k;i++){
+        int ele = s[i]-'0';
+        if(ele!=2 && ele!=3 && ele!=5 && ele!=7){
+            n = 1;
+            ans = s[i];
+            }
+        arr[i] = ele;
+        }
+        if(n != 0){
+            cout<<n<<endl;
+            cout<<ans<<endl;
+            return;
+            }
+            else{
+                    for(int i = 0;i<k;i++){
+                        for(int j = i+1;j<k;j++){
+                            if(i!=j){
+                                string first,second,third;
+                                first = to_string(arr[i]);
+                                second = to_string(arr[j]);
+                                third = first+second;
+                                int ele = stoi(third);
+//                                cout<<ele<<" number"<<endl;
+                                if(sieve_arr[ele] == 1){
+                                    cout<<2<<endl;
+                                    cout<<ele<<endl;
+                                    return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+    }
+int main(){
+    sieve();
+    int t=1;
+    cin>>t;
+    for(int i = 1;i<=t;i++){
+        solve();
+        }
+    
+    return 0;
+    }
