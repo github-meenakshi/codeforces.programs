@@ -1,0 +1,38 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <stack>
+#include <unordered_map>
+#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<endl;
+using namespace std;
+
+void solve(){            
+    ll a,b,c,d,e;
+    cin>>a>>b>>c>>d>>e;
+    if((a+b)<=d && c<=e) cout<<"YES"<<endl;
+    else if((a+c)<=d && b<=e) cout<<"YES"<<endl;
+    else if((b+c)<=d && a<=e) cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+    
+    return;
+    }
+int main(){
+    int t=1;
+    cin>>t;
+    for(int i = 1;i<=t;i++){
+        solve();
+        }
+    
+    return 0;
+    }
