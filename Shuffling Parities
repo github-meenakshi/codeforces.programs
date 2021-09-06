@@ -1,0 +1,69 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <stack>
+#include <queue>
+#include <unordered_map>
+#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<endl;
+using namespace std;
+
+void solve(){            
+    ll n,count = 0;
+    cin>>n;
+    queue<ll> even;
+    queue<ll> odd;
+    for(int i = 1;i<=n;i++){
+        ll x;
+        cin>>x;
+        if(x%2 == 0) even.push(x);
+        else odd.push(x);  
+        }
+        ll arr[n+1]={0};
+        for(int i = 1;i<=n;i+=2){
+            if(!even.empty()){
+                arr[i] = even.front();
+                even.pop();
+                }
+                else break;
+            }
+            
+            for(int i = 1;i<=n;i++){
+                if(arr[i] == 0){
+                    if(!even.empty()){
+                        arr[i] = even.front();
+                        even.pop();
+                        }
+                        else{
+                            arr[i] = odd.front();
+                            odd.pop();
+                            }
+                    }
+                    if(i%2 == 0 && arr[i]%2 == 1) count++;
+                    if(i%2 == 1 && arr[i]%2 == 0) count++; 
+                }
+//                cout<<even.size()<<" "<<odd.size()<<endl;
+                cout<<count<<endl;
+                
+                return;
+        
+    }
+int main(){
+    int t=1;
+    cin>>t;
+    for(int i = 1;i<=t;i++){
+        solve();
+        }
+    
+    return 0;
+    }
