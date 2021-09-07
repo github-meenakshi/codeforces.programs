@@ -1,0 +1,92 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <stack>
+#include <queue>
+#include <unordered_map>
+#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<endl;
+using namespace std;
+ 
+void solve(){
+    multimap<int,pair<int,int> > mp;
+    multimap<int,pair<int,int> > mp1;
+    ll n,m;
+    cin>>n>>m;
+    for(int i = 1;i<=n;i++){
+    for(int j = 1;j<=m;j++){
+        ll ele;
+        cin>>ele;
+        mp.insert(make_pair(ele,make_pair(i,j)));
+        mp1.insert(make_pair(ele,make_pair(i,j)));
+        if(mp1.size()>m){
+            auto it = mp1.end();
+            it--;
+            mp1.erase(it);
+            }
+        }    
+    }
+    ll arr[n+1][m+1];
+    memset(arr,0,sizeof arr);
+    int col = 1;
+    //Putting minimum values in required columns
+    for(auto it = mp1.begin();it!=mp1.end();it++){
+        ll ele_min = it->first;
+        int row1 = it->second.first;
+        int col1 = it->second.second;
+        for(auto it1 = mp.begin();it1!=mp.end();it1++){
+            ll ele = it1->first;
+            int row2 = it->second.first;
+            int col2 = it->second.second;
+            if(ele_min == ele && row1 == row2 && col1 == col2){
+                mp.erase(it1);
+                ll ele = it->first;
+                ll row = it->second.first;
+                arr[row][col] = ele;
+                col++;
+                break;
+                }
+            }
+        }
+        
+        //Filling rest of the values in the array which are left in mp
+        for(auto it : mp){
+            ll ele = it.first;
+            int row = it.second.first;
+            for(int i = 1;i<=m;i++){
+                if(arr[row][i] == 0){
+                    arr[row][i] = ele;
+                    break;
+                    }
+                }
+            }
+            
+            //Printing
+            for(int i = 1;i<=n;i++){
+                for(int j = 1;j<=m;j++){
+                    cout<<arr[i][j]<<" ";
+                    }
+                    cout<<endl;
+                }
+                
+                return;
+    }
+int main(){
+    int t=1;
+    cin>>t;
+    for(int i = 1;i<=t;i++){
+        solve();
+        }
+    
+    return 0;
+    }
