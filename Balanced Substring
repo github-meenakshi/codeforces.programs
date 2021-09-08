@@ -1,0 +1,72 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+//#include <set>
+//#include <string.h>
+//#include <map>
+//#include <stack>
+//#include <queue>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+ 
+void solve(){
+    ll n,l=-1,r = -1;
+    cin>>n;
+    string s;
+    cin>>s;
+//    s = 'd'+s;
+//    for(int i = 1;i<=s.length();i++){
+//        int count_a = 0,count_b = 0;
+//        bool flag = false;
+//        for(int j = i;j<=s.length();j++){
+//            if(s[j] == 'a') count_a++;
+//            else if(s[i] == 'b') count_b++;
+//            
+//            if(count_a == count_b){
+//                l = i;
+//                r = j;
+//                flag = true;
+//                break;
+//                }
+//            }
+//            if(flag == true) break;
+//        }
+        s = 'd'+s;
+        int len = s.length();
+        for(int i = 1;i<=len;i++){
+            if(i!=len && s[i] == 'a' && s[i+1] == 'b'){
+                cout<<i<<" "<<i+1<<endl;
+                return;
+                }
+            }
+            
+            for(int i = 1;i<=len;i++){
+            if(i!=len && s[i] == 'b' && s[i+1] == 'a'){
+                cout<<i<<" "<<i+1<<endl;
+                return;
+                }
+            }
+            cout<<-1<<" "<<-1<<endl;
+        return;
+    }
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);   
+    int t=1;
+    cin>>t;
+    for(int i = 1;i<=t;i++){
+        solve();
+        }
+    
+    return 0;
+    }
