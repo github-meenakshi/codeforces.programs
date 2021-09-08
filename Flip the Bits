@@ -1,0 +1,62 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+#include <stack>
+#include <queue>
+#include <unordered_map>
+#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<endl;
+using namespace std;
+ 
+void solve(){
+    ll n,count = 0;
+    cin>>n;
+    string a,b;
+    cin>>a>>b;
+    
+    vector<pair<int,int> > vec;
+    int one = 0,zero = 0,j = 0;
+    for(int i = 0;i<a.length();i++){
+        if(a[i] == '0') zero++;
+        else one++;
+ 
+        if(one == zero){
+            vec.push_back({j,i});
+            j = i+1;
+            }
+    }
+     for(auto it : vec){
+         int start = it.first;
+         int end = it.second;
+         if(a[start] == b[start]) continue;
+         else{
+             for(int j = start;j<=end;j++){
+                 if(a[j] == '0') a[j] = '1';
+                 else a[j] = '0';
+                 }
+             }
+         }
+ 
+     if(a == b) cout<<"YES"<<endl;
+     else cout<<"NO"<<endl;        
+    }
+int main(){
+    int t=1;
+    cin>>t;
+    for(int i = 1;i<=t;i++){
+        solve();
+        }
+    
+    return 0;
+    }
+ 
