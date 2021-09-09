@@ -1,0 +1,1 @@
+for s in[*open(0)][1:]:print(9*len(s)-18+int(c:=s[0])-('.'<s.strip(c)<c))
