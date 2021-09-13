@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <string.h>
+#include <map>
+#include <set>
+//#include <stack>
+//#include <queue>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+ 
+void solve(int i){
+string s;
+cin>>s;
+ll count = 0;
+for(int i = 0;i<s.length();){
+    if(s[i] == '0'){
+        count++;
+        while(s[i] == '0') i++;
+        }
+        else i++;
+    }
+    
+    if(count == 0) cout<<0<<endl;
+    else if(count == 1) cout<<1<<endl;
+    else cout<<2<<endl;
+}
+ 
+int main(){
+ll t;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve(i);
+}
+ 
+return 0;
+}
