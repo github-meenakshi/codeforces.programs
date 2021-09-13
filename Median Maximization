@@ -1,0 +1,54 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <string.h>
+#include <map>
+#include <set>
+//#include <stack>
+//#include <queue>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+ 
+void solve(int i){
+ll n,s,left,median;
+cin>>n>>s;
+ 
+if(n%2 == 1) left = (n-n/2);
+else left = (n-(n/2)+1);
+ 
+median = s/left;
+ 
+cout<<median<<endl; 
+}
+ 
+int main(){
+ll t;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve(i);
+}
+ 
+return 0;
+}
+    
+//Most beautiful scenes are much higher to climb    
+//Sieve
+//void sieve(){
+//    for(int i=2;i*i<=108;i++){
+//        if(sieve_arr[i] == 0){
+//            for(int j = i*i;j<=108;j+=i){
+//                sieve_arr[j] = 1;
+//                }
+//            }
+//        }
+//    }    
