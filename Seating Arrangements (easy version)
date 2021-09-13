@@ -1,0 +1,64 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <string.h>
+#include <map>
+#include <set>
+//#include <stack>
+//#include <queue>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+//mp[s1].insert(s2);
+void solve(int i){
+ll n,m,indii = 1,ans = 0;
+cin>>n>>m;
+vector<int> vec(m+1);
+map<int,vector<int> > mp;
+ 
+for(int i = 1;i<=m;i++){
+    cin>>vec[i];
+    }
+    
+    for(int i = m;i>=1;i--){
+        int ele = vec[i];
+        mp[ele].push_back(i);
+        }
+        vector<int> seats(m+1);
+        for(auto it : mp){
+            vector<int> curr = it.second;
+            for(auto it1 : curr){
+                seats[indii++] = it1;
+                }
+            }
+//            loop(m);
+            for(int i = 1;i<=m;i++){
+                for(int j = 1;j<=m;j++){
+                    if(seats[j]>i) continue;
+                    else if(seats[j]<i) ans++;
+                    else break;
+                    }
+                }
+                
+                cout<<ans<<endl;
+}
+ 
+int main(){
+ll t;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve(i);
+}
+ 
+return 0;
+}
+   
