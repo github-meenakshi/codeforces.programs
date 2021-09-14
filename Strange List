@@ -1,0 +1,70 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <string.h>
+#include <map>
+#include <set>
+//#include <stack>
+//#include <queue>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+ 
+void solve(){
+ull n,x,mini = 1000000000,indii = -1,t_sum = 0;
+cin>>n>>x;
+vector<ll> vec(n+1);
+ 
+for(int i = 1;i<=n;i++){
+    cin>>vec[i];
+    ull curr = vec[i];
+    ull count = 0;
+    while(curr%x == 0){
+        count++;
+        curr = curr/x;
+        }
+        if(count<mini){
+            indii = i;
+            mini = count;
+            }
+    }
+    
+    //No element will beyond mini+1 before indii and beyond mini after indii
+    for(int i = 1;i<=n;i++){
+        ll curr = vec[i],count = 0,sum = 0;
+        sum+=curr;
+        while(curr%x == 0){
+            if(i<indii && count == (mini+1)) break;
+            else if(i>=indii && count == mini) break;
+            
+            curr = curr/x;
+//            cout<<curr<<" -"<<endl;
+            sum = sum+vec[i];
+            count++;
+            }
+            t_sum+=sum;
+        }
+        
+        cout<<t_sum<<endl;
+ 
+        return;
+}
+ 
+int main(){
+ll t;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+ 
+return 0;
+}
