@@ -1,0 +1,76 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <string.h>
+#include <map>
+#include <set>
+//#include <stack>
+//#include <queue>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+ 
+void solve(){
+    ll n,m,first,second,sum = 0,mini;
+    cin>>n>>m;
+    vector<ll> vec((n+1));
+    multimap<ll,ll> mp;
+    for(int i = 1;i<=n;i++){
+        cin>>vec[i];
+        }
+        
+        if(m<n || n == 2){
+            cout<<-1<<endl;
+            return;
+            }
+            sum+=(vec[1]+vec[n]);
+            mp.insert({1,n});
+            first=1,second = n;
+            mini = sum;
+            
+            for(int i=1;i<n;i++){
+                mp.insert({i,i+1});
+                sum+=(vec[i]+vec[i+1]);
+                if((vec[i]+vec[i+1])<mini){
+                    mini = vec[i]+vec[i+1];
+                    first = i;
+                    second = i+1;
+                    }
+                }
+                
+                ll diff = m-n;
+                for(int i = 1;i<=diff;i++){
+                    mp.insert({first,second});
+                    sum+=(vec[first]+vec[second]);
+                    }
+                    
+                    cout<<sum<<endl;
+                    
+                    for(auto it : mp){
+                        cout<<it.first<<" "<<it.second<<endl;
+                        }
+                        
+                        return;
+    }
+ 
+int main(){
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+ 
+return 0;
+}
+ 
+ 
+ 
