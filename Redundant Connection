@@ -1,0 +1,31 @@
+int parent[100000];
+int ranks[100000];
+void makeSet(int n){
+    for(int i = 0;i<=n;i++){
+        parent[i] = i;
+        ranks[i] = 0;
+        }
+    }
+    int find(int node){ //will return parent of that node (component)
+            if(parent[node] == node) return node;
+            return parent[node] = find(parent[node]);
+            }
+            
+    void unionn(int u,int v){
+        u = find(u);
+        v = find(v);
+        if(u!=v){
+            parent[u] = v;
+            }
+        }
+vector<int> findRedundantConnection(vector<vector<int> > edges){
+    int n = edges.size();
+    makeSet(n+10);
+    for(int i = 0;i<edges.size();i++){
+        int u = edges[i][0];
+        int v = edges[i][1];
+      if(find(u) == find(v)) return edges[i];
+      else unionn(u,v);
+      }
+    return { };
+    }
