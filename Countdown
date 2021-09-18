@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <string.h>
+#include <map>
+#include <set>
+//#include <stack>
+//#include <queue>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+ 
+void solve(){
+    ll n;
+    cin>>n;
+    string s;
+    cin>>s;
+    ll sum = 0;
+    for(int i = 0;i<s.length();i++){
+        ll curr = s[i]-'0';
+        if(curr>0){
+            if(i == s.length()-1) sum+=(curr);
+            else{
+                sum+=(curr+1);
+                }
+            }
+        }
+    cout<<sum<<endl;
+    }
+ 
+int main(){
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+ 
+return 0;
+}
+ 
+ 
