@@ -1,0 +1,101 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <string.h>
+#include <map>
+#include <set>
+#include <queue>
+//#include <stack>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+
+void solve(){
+    int n;
+    cin>>n;
+    vector<int> list[n+1];
+    vector<int> indegree((n+1),0); //indegree array will represent that how many nodes edges ends on that particular node
+    vector<int> topo; //this array represents topo sort
+    queue<int> q;
+    vector<int> readingTime((n+1),1); //we will update the time for every node while we are removing elements from queue
+    for(int i = 1;i<=n;i++){
+        ll k;
+        cin>>k;
+        for(int j = 1;j<=k;j++){
+            int ele; //ith book can be only read if ele is read first
+            cin>>ele;
+            list[ele].push_back(i); //as i deprends on ele , we will add i in adjacancy list of ele representing ith node dependency on ele node
+            indegree[i]++;
+            }
+        }
+        
+        //finding topo sort begins here
+        for(int i = 1;i<=n;i++){
+            if(indegree[i] == 0) q.push(i);
+            }
+            
+            while(!q.empty()){
+                int node = q.front();
+                q.pop();
+                topo.push_back(node);
+                
+                for(auto child : list[node]){
+                    if(child<node){
+                        readingTime[child] = max(readingTime[child],1+readingTime[node]); //if child is smaller node, than we will need an extra step to complete the child node book as it will be read only parent book is read
+                        }
+                        else{
+                            //here a child can be dependent on the nodes more than one, so its necessary to take max of readingTime of parent and readingTime of child
+                            readingTime[child] = max(readingTime[child],readingTime[node]); 
+                            }
+                            
+                            indegree[child]--;
+                            if(indegree[child] == 0) q.push(child);
+                    }
+                }
+                if(topo.size()!=n){ //if topo does not contains all elements in graph that means graph is not a DAG and represents that it is impssible to read all chapters
+                    cout<<-1<<endl;
+                    return;
+                    }
+                
+                int ans = 0;
+                for(int i = 1;i<=n;i++){
+                    ans = max(ans,readingTime[i]);
+                    }
+                    
+                    cout<<ans<<endl;
+    }
+int main(){
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
+
+
+
+
+
+
+//Most beautiful scenes are much higher to climb    
+//Sieve
+//void sieve(){
+//    for(int i=2;i*i<=108;i++){
+//        if(sieve_arr[i] == 0){
+//            for(int j = i*i;j<=108;j+=i){
+//                sieve_arr[j] = 1;
+//                }
+//            }
+//        }
+//    }    
