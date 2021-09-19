@@ -1,0 +1,86 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <string.h>
+#include <map>
+#include <set>
+//#include <queue>
+//#include <stack>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+
+void solve(){
+    ll x,y,z,first,ans = 0;
+    cin>>x>>y>>z;
+    first = min(y/2,z);
+    y-=(2*first);
+    z-=first;
+//    cout<<x<<" "<<y<<" "<<z<<endl;
+    ans+=first;
+    
+    first = min(x,z/2);
+    x-=first;
+    z-=(2*first);
+//    cout<<x<<" "<<y<<" "<<z<<endl;
+    ans+=first;
+    
+    first = min(x/3,z);
+    x-=(3*first);
+    z-=(first);
+//    cout<<x<<" "<<y<<" "<<z<<endl;
+    ans+=first;
+    
+    
+    first = min(x/2,y/2);
+    y-=(2*first);
+    x-=(2*first);
+//    cout<<x<<" "<<y<<" "<<z<<endl;
+    ans+=first;
+    
+    first = x/5;
+    x-=5*first;
+//    cout<<x<<" "<<y<<" "<<z<<endl;
+    ans+=first;
+    
+//    cout<<x<<" "<<y<<" "<<z<<endl;
+    cout<<ans<<endl;
+    
+    return;
+    }
+
+int main(){
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
+
+
+
+
+
+
+//Most beautiful scenes are much higher to climb    
+//Sieve
+//void sieve(){
+//    for(int i=2;i*i<=108;i++){
+//        if(sieve_arr[i] == 0){
+//            for(int j = i*i;j<=108;j+=i){
+//                sieve_arr[j] = 1;
+//                }
+//            }
+//        }
+//    }    
