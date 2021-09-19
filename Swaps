@@ -1,0 +1,79 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <string.h>
+#include <map>
+#include <set>
+//#include <stack>
+//#include <queue>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+
+void solve(){
+    ll n,prev = 1;
+    cin>>n;
+    ll a[n+1];
+    ll b[n+1];
+    ll arr[(2*n)+1]={0};
+    
+    for(int i = 1;i<=n;i++) cin>>a[i];
+    for(int i = 1;i<=n;i++){
+        cin>>b[i];
+        if(b[i]>prev){
+            for(int j = prev;j<=b[i];j+=2){
+                arr[j] = i;
+                }
+                prev = b[i]+1;
+            }
+        }
+        ll sum = 1000000;
+        for(int i = 1;i<=n;i++){
+            ll curr_sum=0,curr = a[i];
+            curr_sum+=(arr[curr]-1);
+            curr_sum+=(i-1);
+            sum = min(sum,curr_sum);
+            }
+            
+//            for(int i = 1;i<=2*n;i++) cout<<arr[i]<<" ";
+//            cout<<endl;
+            cout<<sum<<endl;
+            
+            return;
+    
+    }
+int main(){
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
+
+
+
+
+
+
+//Most beautiful scenes are much higher to climb    
+//Sieve
+//void sieve(){
+//    for(int i=2;i*i<=108;i++){
+//        if(sieve_arr[i] == 0){
+//            for(int j = i*i;j<=108;j+=i){
+//                sieve_arr[j] = 1;
+//                }
+//            }
+//        }
+//    }    
