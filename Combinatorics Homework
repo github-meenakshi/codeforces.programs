@@ -1,0 +1,70 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <string.h>
+#include <map>
+#include <set>
+//#include <queue>
+//#include <stack>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+
+void solve(){
+    ll a,b,c,m,total = 0;
+    cin>>a>>b>>c>>m;
+    
+    total = (a-1)+(b-1)+(c-1);
+    
+    if(total<m) cout<<"NO"<<endl;
+    else if(total == m) cout<<"YES"<<endl;
+    else{
+        ll maxi,medi,mini,poss;
+        maxi=max(a,max(b,c));
+        mini = min(a,min(b,c));
+        medi = (a+b+c)-(maxi+mini);
+        
+        ll diff = abs(total-m);
+        ll diff1 = (maxi-(mini+medi));
+        if(diff1-1 > m) cout<<"NO"<<endl;
+        else cout<<"YES"<<endl;
+        }
+    
+    return;
+    }
+    
+int main(){
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
+
+
+
+
+
+
+//Most beautiful scenes are much higher to climb    
+//Sieve
+//void sieve(){
+//    for(int i=2;i*i<=108;i++){
+//        if(sieve_arr[i] == 0){
+//            for(int j = i*i;j<=108;j+=i){
+//                sieve_arr[j] = 1;
+//                }
+//            }
+//        }
+//    }    
