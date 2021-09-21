@@ -1,0 +1,67 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <string.h>
+#include <map>
+#include <set>
+//#include <queue>
+//#include <stack>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+#define nextln cout<<"\n";
+using namespace std;
+
+void solve(){
+    ll n,x,m;
+    cin>>n>>x>>m;
+    ll left=x;
+    ll right = x;
+    
+    while(m--){
+        ll l,r;
+        cin>>l>>r;
+        if((l<left && r>=left) || (l<=right && r>right)){
+            if(l<left) left = l;
+            if(r>right) right = r;
+            }
+        }
+        
+        cout<<((right-left)+1)<<endl;
+        
+        return;
+}
+
+    
+int main(){
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
+
+
+
+
+
+
+//Most beautiful scenes are much higher to climb    
+//void sieve(){
+//    for(int i=2;i*i<=108;i++){
+//        if(sieve_arr[i] == 0){
+//            for(int j = i*i;j<=108;j+=i){
+//                sieve_arr[j] = 1;
+//                }
+//            }
+//        }
+//    }    
