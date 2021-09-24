@@ -1,0 +1,88 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+//#include <math.h>
+//#include <iomanip>
+//#include <string.h>
+//#include <map>
+//#include <set>
+//#include <queue>
+//#include <stack>
+//#include <numeric>
+//#include <unordered_map>
+//#include <unordered_set>
+#define ll long long int
+//#define ull unsigned long long int
+//#define mod 1000000007
+//#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+//#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+//#define nextln cout<<"\n";
+using namespace std;
+
+void solve(){
+    ll n,m,sum=0;
+    cin>>n;
+    vector<ll> hero(n);
+    for(int i = 0;i<n;i++){
+        cin>>hero[i];
+        sum+=hero[i];
+        }
+        sort(hero.begin(),hero.end());
+        cin>>m;
+        while(m--){
+            ll x,y,fake = sum,fake1 = sum,count = 0,count1 = 0;
+            cin>>x>>y;
+//            cout<<fake<<" "<<fake1<<endl;
+            if(x<=hero[0]){
+                fake = fake-hero[0];
+                if(y>fake) count+=(y-fake);
+                }
+                else if(x>hero[0] && x<=hero[n-1]){
+                    auto it = lower_bound(hero.begin(),hero.end(),x);
+                    fake = fake-(*it);
+                    if(y>fake) count+=(y-fake);
+                    if(it!=hero.begin()){
+                         it--;
+                         count1+=(x-(*it));
+                         fake1 = fake1-(*it);
+                         if(y>fake1) count1+=(y-fake1);
+                         count = min(count,count1);
+                        }
+                    }
+                    else{
+                        fake-=hero[n-1];
+                        count+=(x-hero[n-1]);
+                        if(y>fake) count+=(y-fake);
+                        }
+                        cout<<count<<endl;
+            }
+            
+            return;
+    }    
+int main(){
+ios::sync_with_stdio(false);
+cin.tie(0);    
+ll t = 1;
+//cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
+
+
+
+
+
+
+//Most beautiful scenes are much higher to climb    
+//void sieve(){
+//    for(int i=2;i*i<=108;i++){
+//        if(sieve_arr[i] == 0){
+//            for(int j = i*i;j<=108;j+=i){
+//                sieve_arr[j] = 1;
+//                }
+//            }
+//        }
+//    }    
