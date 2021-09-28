@@ -1,0 +1,111 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <math.h>
+#include <list>
+//#include <iomanip>
+//#include <string.h>
+//#include <queue>
+//#include <stack>
+//#include <numeric>
+//#include <unordered_map>
+#define ll long long int
+//#define ull unsigned long long int
+#define mod 1000000007
+//#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+//#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+//#define nextln cout<<"\n";
+using namespace std;
+
+//void solve(){
+//    ll n,m,k;
+//    cin>>n>>m>>k;
+//    
+//    vector<vector<char> > vec(n,vector<char>(m));
+//    char arr[n][m];
+//    memset(arr,'0',sizeof arr);
+//    for(int i = 0;i<n;i++){
+//        for(int j = 0;j<m;j++){
+//            cin>>vec[i][j];
+//            }
+//        }
+//        
+//        for(int i = n-1;i>=0;i--){
+//            for(int j = m-1;j>=0;j--){
+//                if(vec[i][j] == '*'){
+//                    int r = i-1,c = j-1,size_tick_r = 0,size_tick_c = 0;
+//                    while(true){
+//                        if(r<0 || c>=n) break;
+//                        if(vec[r][c] == '*'){
+//                            arr[r][c] = '1';
+//                            size_tick_r++;
+//                            }
+//                            else break;
+//                            r--;
+//                            c++;
+//                        }
+//                        r = i-1,c = j-1;
+//                        while(true){
+//                            if(r<0 || c<0) break;
+//                            if(tick_size_c == tick_size_r) break;
+//                            if(vec[r][c] == '*'){
+//                                arr[r][c] = '1';
+//                                size_tick_c++;
+//                                }
+//                                else break;
+//                                r--;
+//                                c--;
+//                            }
+//                    }
+//                }
+//            }
+//    }
+
+void solve(){
+    ll n,first = -1,last = -1;
+    cin>>n;
+    
+    vector<int> vec(n);
+    list<int> l;
+    for(int i = 0;i<n;i++){
+        cin>>vec[i];
+        }
+        
+        for(int i = 0;i<n;i++){
+            if(first == -1){
+                l.push_back(vec[i]);
+                first = vec[i];
+                last = vec[i];
+                }
+            else{
+                if(vec[i]<=first){
+                    l.push_front(vec[i]);
+                    first = vec[i];
+                    }
+                else{
+                    l.push_back(vec[i]);
+                    last = vec[i];
+                    }
+                }
+            }
+            
+            for(auto it : l) cout<<it<<" ";
+            
+            cout<<endl;
+            
+            return;
+    }    
+int main(){
+ios::sync_with_stdio(false);
+cin.tie(0);    
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
