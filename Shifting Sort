@@ -1,0 +1,85 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <math.h>
+//#include <iomanip>
+//#include <string.h>
+//#include <queue>
+//#include <stack>
+//#include <numeric>
+//#include <unordered_map>
+#define ll long long int
+//#define ull unsigned long long int
+#define mod 1000000007
+//#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+//#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+//#define nextln cout<<"\n";
+using namespace std;
+
+void solve(){
+    ll n,f = 0;
+    cin>>n;
+    
+    vector<ll> vec(n);
+    vector<int> first;
+    vector<pair<int,int> > second;
+    
+    for(int i = 0;i<n;i++){
+        cin>>vec[i];
+        }
+         
+         vector<ll> vec2 = vec;
+         vector<ll> vec3 = vec;
+         sort(vec2.begin(),vec2.end());
+         
+         for(int i = 0;i<n;i++){
+             ll curr = vec2[i];
+//             for(auto it : vec) cout<<it<<" ";
+//             cout<<endl;
+             for(int j = i;j<n;j++){
+                 if(vec[j] == curr){
+                     if(i == j){
+                         f++;
+                         break;
+                         }
+                     for(int a = f+1;a<=j;a++){
+                         vec[a] = vec3[a-1];
+                         }
+                         vec[f] = curr;
+                         ll d = j-f;
+                         first.push_back(d);
+                         second.push_back({f+1,j+1});
+                         f++;
+                         break;
+                     }
+                 }
+                 vec3 = vec;
+             }
+         
+//         cout<<endl;
+         ll sizes = first.size();
+         cout<<sizes<<endl;
+         for(int i = 0;i<sizes;i++){
+             pair<int,int> ele = second[i];
+             ll cu = first[i];
+             
+             cout<<ele.first<<" "<<ele.second<<" "<<cu<<endl;
+             }
+             
+             return;
+    }
+    
+int main(){
+ios::sync_with_stdio(false);
+cin.tie(0);    
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
