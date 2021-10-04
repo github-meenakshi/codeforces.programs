@@ -1,0 +1,75 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <map>
+#include <unordered_set>
+#include <math.h>
+#include <list>
+#include <queue>
+//#include <iomanip>
+//#include <string.h>
+//#include <queue>
+//#include <stack>
+//#include <numeric>
+//#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+//#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+//#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+//#define nextln cout<<"\n";
+using namespace std;
+
+vector<ull> vec(32);
+vector<ull> vec1(32);
+void f(){
+    for(int i = 1;i<=31;i++){
+        long long int curr = pow(2,i);
+        vec[i] = curr;
+        }
+    }
+    void g(){
+        vec1[0] = 1;
+        for(int i = 1;i<=31;i++){
+            long long int curr = pow(2,i-1);
+            vec1[i] = curr;
+            }
+        }
+void solve(){
+    long long int n;
+    cin>>n;
+    ll count = 0;
+    for(int i = 1;i<32;i++){
+        count++;
+        if(pow(2,i)>=n){
+            if(pow(2,i) == n){
+                cout<<vec1[i]<<endl;
+                }
+                else if(pow(2,i)>n){
+                    ll first = (n-vec1[i])+1;
+                    long long int second = vec1[i-1];
+                    
+                    cout<<max(first,second)<<endl;
+                    }
+                    break;
+            }
+        }
+        
+//        cout<<count<<" "<<"--"<<endl;
+    return;
+    }
+    
+int main(){
+f();
+g();
+ios::sync_with_stdio(false);
+cin.tie(0);    
+long long int t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
