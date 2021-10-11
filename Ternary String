@@ -1,0 +1,64 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <math.h>
+//#include <map>
+//#include <unordered_set>
+//#include <list>
+//#include <queue>
+//#include <iomanip>
+//#include <string.h>
+//#include <queue>
+//#include <stack>
+//#include <numeric>
+//#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+//#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+//#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+//#define nextln cout<<"\n";
+using namespace std;
+
+void solve(){
+    string s;
+    cin>>s;
+    ll left=0,right=0,o = 0,t=0,th = 0,len = 100000000;
+    
+    while(right<=(s.length()-1)){
+        if(s[right] == '1') o++;
+        else if(s[right] == '2') t++;
+        else if(s[right] == '3') th++;
+        
+        if(o && t && th){
+//            cout<<left<<" "<<right<<endl;
+            if(len == 3) break;
+            while(true){
+                if(s[left] == '1' && (o-1)>0) o--;
+                else if(s[left] == '2' && (t-1)>0) t--;
+                else if(s[left] == '3' && (th-1)>0) th--;
+                else break;
+                left++;
+                }
+                len = min(len,(right-left+1));
+            }
+            right++;
+        }
+//        cout<<endl;
+        if(len == 100000000) len=0;
+        cout<<len<<endl;
+        
+        return;
+    } 
+int main(){
+ios::sync_with_stdio(false);
+cin.tie(0);    
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
