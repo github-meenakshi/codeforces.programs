@@ -1,0 +1,120 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <math.h>
+//#include <map>
+//#include <unordered_set>
+//#include <list>
+//#include <queue>
+//#include <iomanip>
+//#include <string.h>
+//#include <queue>
+//#include <stack>
+//#include <numeric>
+//#include <unordered_map>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+//#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+//#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+//#define nextln cout<<"\n";
+using namespace std;
+
+//void solve(){
+//    ll n;
+//    cin>>n;
+//    
+//    vector<ll> vec(n+1);
+//    
+//    for(int i=1;i<=n;i++){
+//        cin>>vec[i];
+//        }
+//        if(n<=2){
+//            cout<<0<<endl;
+//            return;
+//            }
+//            
+//        ll cont = 0,count = 0,maxi = -1;
+//        for(int i = 2;i<n;i++){
+//            if(vec[i]>vec[i+1] && vec[i]>vec[i-1]){
+//                cont++;
+//                count++;
+//                }
+//            else if(vec[i]<vec[i+1] && vec[i]<vec[i-1]){
+//                cont++;
+//                count++;
+//                }
+//                else cont = 0;
+//                maxi = max(cont,maxi);
+//                
+//                if(maxi == 3){
+//                    if(vec[i-1]>vec[i]){
+//                        if(vec[i-2]>vec[i]) count++;
+//                        }
+//                        else if(vec[i-1]<vec[i]){
+//                            if(vec[i-2]<vec[i]) count++;
+//                            }
+//                    }
+//            }
+////            cout<<maxi<<endl;
+//            if(maxi >= 3) count-=3;
+//            else if(maxi == 2) count-=2;
+//            else if(maxi == 1) count-=1;
+//            
+//            cout<<count<<endl;
+//            
+//            return;
+//    }
+
+void solve(){
+    ll n;
+    char c;
+    cin>>n>>c;
+    string s;
+    cin>>s;
+    s = 'a'+s;
+    vector<ll> vec;
+    vector<ll> vec1;
+    
+    for(int i = 1;i<s.length();i++){
+        if(s[i]==c){
+            vec.push_back(i);
+            }
+            else vec1.push_back(i);
+        }
+        if(!vec1.size()){
+            cout<<0<<endl;
+            return;
+            }
+        //now we will look for an integer which divides no-one in char
+        for(int i = 0;i<vec.size();i++){
+            bool flag = true;
+            for(int j = 0;j<vec1.size();j++){
+                if(vec1[j]%vec[i] == 0){
+                    flag = false;
+                    break;
+                    }
+                }
+                if(flag){
+                    cout<<1<<endl;
+                    cout<<vec[i]<<endl;
+                    return;
+                    }
+            }
+            cout<<2<<endl;
+            cout<<n<<" "<<n-1<<endl;
+            
+            return;
+    }    
+int main(){
+ios::sync_with_stdio(false);
+cin.tie(0);    
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
