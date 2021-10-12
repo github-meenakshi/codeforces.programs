@@ -1,0 +1,33 @@
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <iomanip>
+#include <set>
+#include <string.h>
+#include <map>
+#include <vector>
+using namespace std;
+ 
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n,count = 0,times = 0;
+        cin>>n;
+        vector<int> vec;
+        while(n!=0){
+            int rem = n%10;
+            if(rem!=0){
+                times++;
+                int ele = rem*pow(10,count);
+                vec.push_back(ele);
+                }
+                n = n/10;
+                count++;
+            }
+            cout<<times<<endl;
+            for(auto it : vec) cout<<it<<" ";
+            cout<<endl;
+        }
+        return 0;
+    }
