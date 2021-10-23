@@ -1,0 +1,35 @@
+void solve(){
+     //Swapping two elements
+//     ll x,y;
+//     cin>>x>>y;
+//     x = x^y;
+//     y = x^y;
+//     x = x^y;
+//     cout<<x<<" "<<y<<endl;
+
+     //Right Shift -- right shift me 2 ki power x se multiply hota hai (n*2^x)
+//     ll n;
+//     cin>>n;
+//     cout<<(n>>1)<<endl;
+     
+     //Left Shift -- left shift me 2 ki power x se divide hota hai (n/(2^x))
+//     ll n;
+//     cin>>n;
+//     cout<<(n<<2)<<endl;
+     
+     //Check ith bit is set or not
+//     ll n,i;
+//     cin>>n>>i;
+//     
+//     ll ele = n&(1<<i);
+//     if(ele == 0) cout<<"Not set"<<endl;
+//     else cout<<"Set"<<endl;
+
+     //update the ith bit of n to 1 and output the n 
+     ll n,i;
+     cin>>n>>i;
+     int ele = (1<<i);
+     cout<<(n | ele)<<endl;
+         
+     return;
+    }
