@@ -1,0 +1,57 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <queue>
+#include <map>
+#include <unordered_map>
+#include <math.h>
+#include <unordered_set>
+//#include <string>
+//#include <list>
+//#include <iomanip>
+//#include <queue>
+//#include <stack>
+//#include <numeric>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000000
+//#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+//#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+//#define nextln cout<<"\n";
+using namespace std;
+
+void solve(){
+    ll n;
+    cin>>n;
+    vector<string> vec(n-2);
+    string ans;
+    bool flag = true;
+    for(int i = 0;i<(n-2);i++){
+        cin>>vec[i];
+        }
+        ans = ans+vec[0];
+        for(int i = 1;i<n-2;i++){
+            if(vec[i][0] == vec[i-1][1]) ans = ans+vec[i][1];
+            else{
+                ans = ans+vec[i];
+                flag = false;
+                }
+            }
+            if(flag) ans+='a';
+            cout<<ans<<endl;
+            
+            return;
+    }
+    
+int main(){
+ios::sync_with_stdio(false);
+cin.tie(0);
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
