@@ -1,0 +1,62 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <queue>
+#include <map>
+#include <unordered_map>
+#include <math.h>
+#include <unordered_set>
+//#include <string>
+//#include <list>
+//#include <iomanip>
+//#include <queue>
+//#include <stack>
+//#include <numeric>
+#define ll long long int
+#define ull unsigned long long int
+#define mod 1000000007
+//#define loop(n) for(int i = 1;i<=n;i++) cout<<seats[i]<<" ";
+//#define loopIN(n) for(int i = 0;i<n;i++) cin>>arr[i];
+//#define nextln cout<<"\n";
+using namespace std;
+
+void solve(){
+    ll first,second,third;
+    cin>>first>>second>>third;
+    
+    if(first == second){
+        if(third%2 == 0) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+        }
+        else if(second == third){
+            if(first%2 == 0) cout<<"YES"<<endl;
+            else cout<<"NO"<<endl;
+            }
+       else if(first == third){
+            if(second%2 == 0) cout<<"YES"<<endl;
+            else cout<<"NO"<<endl;
+            }
+            else{
+                ll maxi = max(first,max(second,third));
+                
+                if(maxi == first+second) cout<<"YES"<<endl;
+                else if(maxi == second+third) cout<<"YES"<<endl;
+                else if(maxi == first+third) cout<<"YES"<<endl;
+                else cout<<"NO"<<endl;
+                }
+                
+                return;
+    }
+    
+int main(){
+ios::sync_with_stdio(false);
+cin.tie(0);
+ll t = 1;
+cin>>t;
+for(int i = 1;i<=t;i++){
+solve();
+}
+
+return 0;
+}
